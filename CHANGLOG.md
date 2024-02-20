@@ -1,5 +1,13 @@
 # The World Conquest CHANGELOG
 
+---
+
+## [0.0.2] - 2024-02-20
+
+### Added
+
+* Create Unity Project
+* Create .gitignore file for avoid large file upload to Github
 
 ---
 
