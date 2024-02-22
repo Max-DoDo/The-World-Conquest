@@ -4,22 +4,19 @@
     Not generate yet
 
 * **Names of team members present:** 
-   * `Max Wang`
+    * `Max Wang`
     * `Wu Tong`
     * `Sun Weiyi`
-   
-* **Meeting moderator:Max Wang**
-   
-    **(A member is absent)**
-    
+
+* **Meeting moderator: Max Wang**
+
 * **Meeting format:**   
     physical meeting in library
 
 * **Date and time:(YYYY-MM-DD HH:MM - HH:MM)**  
     2024-02-16 19:00 - 21:00
 
-
-## Conference framework:
+## Note before meeting
 
  * Make changes to the documents (low-level documents, high-level documents) prepared some time ago
  
@@ -34,7 +31,7 @@
  * As for the reasons for the absences, 'Yao wen Zhang' could not attend due to personal reasons, and 'Zhenmao Song' could not attend due to physical reasons of his family members.
 
 
-## About the issues discussed at the meeting 
+## Issues discussed at this meeting
  
 **1. Modify and upload documents about the previous preparation (completed in stages)**
   
@@ -67,12 +64,9 @@
 
 * Re-add the meeting moderator to the weekly meeting minutes.
 
-
-
 ## Other Remarks
 
 * We need more details to get better
 * We need strong debate instead of "whatever"
-
 
 **END 2024-2-16**

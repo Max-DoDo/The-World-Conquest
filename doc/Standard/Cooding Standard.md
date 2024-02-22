@@ -36,13 +36,13 @@
     
     * 7. **Exception  handling**
     
-        * Handle  exceptions  in  code blocks  that  may  cause  exceptions  to  ensure  the  stability of  program operation.
-        * Avoid the way of  catching  all  exceptions,  and  specific handling should be  performed according to different types of  exceptions.
+        * Handle exceptions in code blocks that may cause exceptions to ensure the stability of program operation.
+        * Avoid the way of catching all exceptions, and specific handling should be  performed according to different types of exceptions.
         
    * 8. **Error  logging**
    
        * Add  an  error  log  where  appropriate to  record  error  information  that  occurs  while the  program is  running.
-       * The error log should contain  useful  context information to facilitate  troubleshooting and  repair.
+       * The error log should contain useful context information to facilitate  troubleshooting and  repair.
      
    * 9. **Class**
    

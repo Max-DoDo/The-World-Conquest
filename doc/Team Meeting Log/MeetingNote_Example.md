@@ -1,6 +1,7 @@
 # Software Engineering G6046 - Team Meeting Note
 
 * **Team Number:**  
+    29
 
 * **Names of team members present:**  
 
@@ -9,6 +10,7 @@
 * **Date and time(YYYY-MM-DD HH:MM - HH:MM):**  
 
 * **Meeting co-ordinator:**  
+    Weekly Meeting
 
 
 ---
