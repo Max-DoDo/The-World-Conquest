@@ -2,12 +2,24 @@
 
 ---
 
-## [0.0.2] - 2024-02-20
+## [0.0.2] - 2024-02-23
 
 ### Added
 
-* Create Unity Project
-* Create .gitignore file for avoid large file upload to Github
+* Add Unity Project.
+* Add .gitignore file for avoid large file upload to Github.
+* Add Design document.
+* Add Planning document.
+* Add Meeting log.
+* Add Sprint document.
+* Add Standard document.
+* Add Test document.
+
+### Changed
+
+* Remove Planning document in markdown file.
+* Revise document typesetting.
+* Modified project paths to rationalize them.
 
 ---
 
