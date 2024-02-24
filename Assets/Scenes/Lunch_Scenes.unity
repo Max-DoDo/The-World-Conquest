@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 444037444}
   - component: {fileID: 444037443}
   - component: {fileID: 444037445}
+  - component: {fileID: 444037446}
   m_Layer: 5
   m_Name: Start_Panel
   m_TagString: Untagged
@@ -312,6 +313,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &444037446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444037441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae46220575f5da4ba90b3d321176d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainScene:
+    m_Handle: 0
 --- !u!1 &743496917
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +339,7 @@ GameObject:
   - component: {fileID: 743496920}
   - component: {fileID: 743496919}
   - component: {fileID: 743496918}
+  - component: {fileID: 743496922}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -414,6 +430,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &743496922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743496917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae46220575f5da4ba90b3d321176d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainScene:
+    m_Handle: 0
 --- !u!1 &1310113623
 GameObject:
   m_ObjectHideFlags: 0
