@@ -2,6 +2,19 @@
 
 ---
 
+## [0.0.3] - 2024-02-24
+
+### Added
+
+* New Unity project related folder added in assets folder.
+
+### Changed
+
+* Modified project path to rationalize them.
+* Modified gitignore file to avoid upload VScode cache file upload into git.
+
+---
+
 ## [0.0.2] - 2024-02-23
 
 ### Added
