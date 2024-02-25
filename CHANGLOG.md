@@ -2,16 +2,24 @@
 
 ---
 
-## [0.0.3] - 2024-02-24
+
+---
+
+## [0.0.3] - 2024-02-25
 
 ### Added
 
 * New Unity project related folder added in assets folder.
+* Add opening scene.
+* Add  menu scene and four button.
+* Add related method for the four button.
 
 ### Changed
 
 * Modified project path to rationalize them.
 * Modified gitignore file to avoid upload VScode cache file upload into git.
+* .gitignore file update for avoid log file upload into Github.
+* Rename "Lunch" to "Launch".
 
 ---
 
