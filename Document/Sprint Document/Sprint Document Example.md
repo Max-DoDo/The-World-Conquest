@@ -2,7 +2,7 @@
 
 ## Summary Data
 
-* Team Number: 29
+* Team Number: 27
 * Sprint TEchnical Lead(s): 
 * Sprint Start Date: 
 * Sprint End Date:
@@ -11,12 +11,12 @@
 
 |  Team Member   | Key Contribution(s)  |
 |  :----         | :----                |
-| Max Wang       | Absent |
-| Tao Yiwen      | Absent |
-| Wu Tong        | Absent |
-| Sun Weiyi      | Absent |
-| Song Zhenmao   | Absent |
-| Zhang Yaowen   | Absent |
+| Max Wang       | None |
+| Tao Yiwen      | None |
+| Wu Tong        | None |
+| Sun Weiyi      | None |
+| Song Zhenmao   | None |
+| Zhang Yaowen   | None |
 
 
 

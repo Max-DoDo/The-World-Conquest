@@ -1,7 +1,21 @@
 # The World Conquest CHANGELOG
 
 ---
+## [0.0.4] - 2024-02-25
 
+### Added
+
+* Sprint Document 1 start.
+* Main menu button can jump to other scene now.
+
+### Changed
+
+* Low level document update.
+
+### Log
+
+* Sprint 1 now start. Please notice your work.
+* Main menu will be refactor in this sprint.
 
 ---
 
