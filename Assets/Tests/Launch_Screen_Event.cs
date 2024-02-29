@@ -10,7 +10,16 @@ using UnityEngine.SceneManagement;
 /// <date>
 ///     2024-02-24
 /// </date>
-public class Lunch_Screen : MonoBehaviour
+/// <summary>
+///     Corrected spelling mistakes .
+/// </summary>
+/// <author>
+///     wtto
+/// </author>
+/// <date>
+///     2024-02-28
+/// </date>
+public class Launch_Screen : MonoBehaviour
 {
     /// <summary>
     ///     The scene name for switch at the spcified time.
@@ -21,7 +30,7 @@ public class Lunch_Screen : MonoBehaviour
     /// <summary>
     ///     Calling by the animation event. For switch to a specified scene defined by <code>sceneName</code>
     /// </summary>
-    public void LunchScreenEvent(){
+    public void LaunchScreenEvent(){
         SceneManager.LoadScene(sceneName);
     }
 }
