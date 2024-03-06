@@ -13,7 +13,7 @@
 |  :----         | :----                |
 | Max Wang       | 1. Coding for Main Menu; 2. UI design; 3. sprint document |
 | Tao Yiwen      | 1. Main Menu UI implement; 2. UI design |
-| Wu Tong        | None |
+| Wu Tong        | 1. Test Ver0.0.4 2.Code error modification |
 | Sun Weiyi      | 1. High Level Document update |
 | Song Zhenmao   | 1. Standard document update |
 | Zhang Yaowen   | 1. Low Level Document update |
@@ -109,11 +109,17 @@ No user story for this sprint.
 
 
 ## Test plan and evidence of testing
+  * Test class
+    1. Launch_Screen
+    2. Main_Menu_Button
 
-
+  * Evidence of testing
+    1. See details in Defect Report 001
+    2. ![alt text](image-1.png)
+    
 
 ## Summary of sprint
-
+    We have a good start, a clear division of labor and a good project structure, but from the perspective of work progress, our work efficiency is not very high. Hope we can guarantee quality and efficiency in future work.
 
 
 
