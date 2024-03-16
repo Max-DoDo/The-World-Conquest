@@ -2,7 +2,36 @@
 
 ---
 
+## [0.1.0 - Alpha] - 2024-03-17
 
+### Added
+
+* Add game scene.
+* Add all country in the map.
+* Add background.
+* Add different color in the country where in the different contienent.
+* Add raycast to the object(country) in the map.
+* Add mouse click function(testing). The country be clicked will change color to red now.
+* Add new Font file.
+* Add background texture.
+* Add sprint document 2.
+* Add main menu 3D project.
+* Add version 0.0.4 testing file.
+* Camera can move with keyboard "WASD" or "UP","DOWN","LEF","RIGHT" now.
+* Camera can zoom in and zoom out with mouse scroll wheel now.
+* Camera movement is limited to a certain range.
+* Camera zoom is limited to a certain range.
+* Camera zoom is more smooth now.
+* Camera movement changes with zoom level.
+* Camera movement and zoom is more stable in different frame rate.
+
+### Changed
+
+* Removed useless file generate by Mac operating system upload by UI.
+* Map UI and Font UI update.Their resolution is now higher.
+* Planning document update.
+* Refactor the project file path.
+* Refactor the project file name in UI folder.
 
 ---
 ## [0.0.4] - 2024-02-25
