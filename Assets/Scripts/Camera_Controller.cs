@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 /// <summary>
@@ -93,12 +94,11 @@ public class Camera_Controller : MonoBehaviour
     private void Start()
     {
 
-        RectTransform rt = canvas.GetComponent<RectTransform>();
-        Vector2 screenSize = new(Screen.currentResolution.width,Screen.currentResolution.height);
+        Vector2 screenSize = canvas.GetComponent<RectTransform>().sizeDelta;
         
-        moveSpeed = screenSize.x/5;
+        moveSpeed = screenSize.x/3;
         init_ZoomSize = screenSize.x/10;
-        mouseWheelSpeed = screenSize.x/20;
+        mouseWheelSpeed = screenSize.x/100;
         adjustment_value = 0.0f;
         offset = 0.0f;
         maxZoomSize = screenSize.x/5;
@@ -106,7 +106,7 @@ public class Camera_Controller : MonoBehaviour
 
         // canvas = GetComponent<Canvas>();
 
-        // Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;
         Camera.main.orthographicSize = init_ZoomSize;
         Camera.main.transform.position = canvas.transform.position;
 
@@ -140,27 +140,23 @@ public class Camera_Controller : MonoBehaviour
         Vector2 newPosition = new Vector2(transform.position.x, transform.position.y) + moveAmount;
 
         // Get a value between 0 and 1 for the zoom rate.
-        float LerpValue = Mathf.InverseLerp(minZoomSize, maxZoomSize, Camera.main.orthographicSize);
-        LerpValue = (float)Math.Round(LerpValue * 100f) / 100;
-        LerpValue = Mathf.Clamp01(LerpValue);
+        // float LerpValue = Mathf.InverseLerp(minZoomSize, maxZoomSize, Camera.main.orthographicSize);
+        // LerpValue = (float)Math.Round(LerpValue * 100f) / 100;
+        // LerpValue = Mathf.Clamp01(LerpValue);
 
-        float width = Screen.currentResolution.width;
-        float height = Screen.currentResolution.height;
+        float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
+        float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
         float ScreenResolutionRate = width/height;
         float size = Camera.main.orthographicSize;
 
-        MinXY = new Vector2(size * ScreenResolutionRate + 200,size);
-        MaxXY = new Vector2((width - size * ScreenResolutionRate) - 200,height - size);
-        Debug.Log("Size: " + Camera.main.orthographicSize);
-        Debug.Log("MinXY: " + MinXY);
-        Debug.Log("MaxXY: " + MaxXY);
+        MinXY = new Vector2(size * ScreenResolutionRate + (width * 0.2f),size);
+        MaxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.2f),height - size);
 
         // Vector2 newMinXY = MinXY * LerpValue;
         // Vector2 newMaxXY = MaxXY * LerpValue;
 
         newPosition.x = Mathf.Clamp(newPosition.x, MinXY.x, MaxXY.x);
         newPosition.y = Mathf.Clamp(newPosition.y, MinXY.y, MaxXY.y);
-
         
         transform.position = newPosition;
 
@@ -169,46 +165,45 @@ public class Camera_Controller : MonoBehaviour
 //TODO 将屏幕分辨率修改为canvas的长和宽
     private void ZoomCamera()
     {
-
+        float c = mouseWheelSpeed;
+        // float temp = ;
+        // Debug.Log(temp);
+        
         //get input from mouse wheel
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            offset += 1000 * Time.deltaTime;
+            offset += mouseWheelSpeed;
+
         }
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            offset -= 1000 * Time.deltaTime;
+            offset -= mouseWheelSpeed;
         }
 
-        if (offset > 2.5)
+        if (offset >  mouseWheelSpeed * 3)
         {
-            offset = 2.5f;
+            offset =  mouseWheelSpeed * 3;
         }
-        else if (offset < -2.5)
+        else if (offset < -mouseWheelSpeed * 3)
         {
-            offset = -2.5f;
+            offset = -mouseWheelSpeed * 3;
         }
+        float halfsecond =  1 / Time.deltaTime / 8;
+        float movementValue = mouseWheelSpeed / halfsecond;
 
-        float c = mouseWheelSpeed * Time.deltaTime * 30;
+        Debug.Log("HalfSecond: " + halfsecond);
+        Debug.Log("movementValue:" + movementValue);
+        Debug.Log("Offset: " + offset);
 
-        if (offset > c)
+        if (Camera.main.orthographicSize + movementValue < maxZoomSize && offset > movementValue)
         {
-            if (Camera.main.orthographicSize + c <= maxZoomSize)
-            {
-                Camera.main.orthographicSize += c;
-            }
-            offset -= c;
-        }
-        else if (offset < (-c))
+            Camera.main.orthographicSize += movementValue;
+            offset -= movementValue;
+        }else if (Camera.main.orthographicSize - movementValue > minZoomSize && offset < -movementValue)
         {
-            if (Camera.main.orthographicSize - c >= minZoomSize)
-            {
-                Camera.main.orthographicSize -= c;
-            }
-            offset += c;
-        }
-        else
-        {
+            Camera.main.orthographicSize -= movementValue;
+            offset += movementValue;
+        }else{
             offset = 0;
         }
 
