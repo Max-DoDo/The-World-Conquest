@@ -1,5 +1,19 @@
 # The World Conquest CHANGELOG
 
+## [0.1.0-Beta] - 2024-03-21
+
+### Fixed
+
+* Fixed incorrect camera position at different resolutions.
+* Fixed the issue where the zoom function of the lens may fail under different resolutions
+* Fixed the issue where the camera movement function may fail under different resolutions
+* Fixed the issue where the zoom of the camera under different frame numbers is not as expected.
+* Fixed the issue where camera movement was not as expected under different frame numbers.
+
+### Changed
+
+* Modified the logic of camera movement, Now the camera will try to be in the middle of the map.
+
 ---
 
 ## [0.1.0 - Alpha] - 2024-03-17

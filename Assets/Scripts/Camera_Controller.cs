@@ -106,7 +106,7 @@ public class Camera_Controller : MonoBehaviour
 
         // canvas = GetComponent<Canvas>();
 
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
         Camera.main.orthographicSize = init_ZoomSize;
         Camera.main.transform.position = canvas.transform.position;
 
@@ -154,15 +154,19 @@ public class Camera_Controller : MonoBehaviour
 
         // Vector2 newMinXY = MinXY * LerpValue;
         // Vector2 newMaxXY = MaxXY * LerpValue;
+        if(MinXY.x > MaxXY.x){
+            MaxXY.x = MinXY.x = (MaxXY.x+MinXY.x)/2; 
+        }
 
         newPosition.x = Mathf.Clamp(newPosition.x, MinXY.x, MaxXY.x);
         newPosition.y = Mathf.Clamp(newPosition.y, MinXY.y, MaxXY.y);
+        Debug.Log(MinXY);
+        Debug.Log(MaxXY);
         
         transform.position = newPosition;
 
     }
 
-//TODO 将屏幕分辨率修改为canvas的长和宽
     private void ZoomCamera()
     {
         float c = mouseWheelSpeed;
@@ -190,10 +194,6 @@ public class Camera_Controller : MonoBehaviour
         }
         float halfsecond =  1 / Time.deltaTime / 8;
         float movementValue = mouseWheelSpeed / halfsecond;
-
-        Debug.Log("HalfSecond: " + halfsecond);
-        Debug.Log("movementValue:" + movementValue);
-        Debug.Log("Offset: " + offset);
 
         if (Camera.main.orthographicSize + movementValue < maxZoomSize && offset > movementValue)
         {
