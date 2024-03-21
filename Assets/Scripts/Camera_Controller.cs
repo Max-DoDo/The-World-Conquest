@@ -149,8 +149,8 @@ public class Camera_Controller : MonoBehaviour
         float ScreenResolutionRate = width/height;
         float size = Camera.main.orthographicSize;
 
-        MinXY = new Vector2(size * ScreenResolutionRate + (width * 0.2f),size);
-        MaxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.2f),height - size);
+        MinXY = new Vector2(size * ScreenResolutionRate + (width * 0.1f),size);
+        MaxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.1f),height - size);
 
         // Vector2 newMinXY = MinXY * LerpValue;
         // Vector2 newMaxXY = MaxXY * LerpValue;

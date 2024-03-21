@@ -20,6 +20,8 @@ public class Game_Event_Handler : MonoBehaviour,IPointerClickHandler
             Debug.Log(hit.collider.gameObject);
             GameObject hitObject = hit.collider.gameObject;
             hitObject.GetComponent<SpriteRenderer>().color = Color.red;
+            hitObject.GetComponent<Counrty>().isEnable = true;
+
         }
     }
 }

@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 69452141}
   - component: {fileID: 69452142}
   - component: {fileID: 69452143}
+  - component: {fileID: 69452144}
   m_Layer: 3
   m_Name: Eastern Canada
   m_TagString: Country
@@ -376,6 +377,23 @@ PolygonCollider2D:
       - {x: -5.5410643, y: 2.895117}
       - {x: -5.32749, y: 2.9544432}
   m_UseDelaunayMesh: 0
+--- !u!114 &69452144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69452140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &112469343
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +489,7 @@ GameObject:
   - component: {fileID: 117530610}
   - component: {fileID: 117530611}
   - component: {fileID: 117530612}
+  - component: {fileID: 117530613}
   m_Layer: 3
   m_Name: Eastern Australia
   m_TagString: Country
@@ -646,6 +665,23 @@ PolygonCollider2D:
       - {x: 10.619385, y: -7.59375}
       - {x: 10.7261715, y: -7.5818844}
   m_UseDelaunayMesh: 0
+--- !u!114 &117530613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117530609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &143414619
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +693,7 @@ GameObject:
   - component: {fileID: 143414620}
   - component: {fileID: 143414621}
   - component: {fileID: 143414622}
+  - component: {fileID: 143414623}
   m_Layer: 3
   m_Name: Yakutsk
   m_TagString: Country
@@ -827,6 +864,23 @@ PolygonCollider2D:
       - {x: 7.4157715, y: 5.07832}
       - {x: 7.486963, y: 5.173242}
   m_UseDelaunayMesh: 0
+--- !u!114 &143414623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143414619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &258924294
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +892,7 @@ GameObject:
   - component: {fileID: 258924295}
   - component: {fileID: 258924296}
   - component: {fileID: 258924297}
+  - component: {fileID: 258924298}
   m_Layer: 3
   m_Name: Mongolia
   m_TagString: Country
@@ -1011,6 +1066,23 @@ PolygonCollider2D:
       - {x: 9.088769, y: 1.6967285}
       - {x: 9.088769, y: 1.7560546}
   m_UseDelaunayMesh: 0
+--- !u!114 &258924298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258924294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &336771810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1094,7 @@ GameObject:
   - component: {fileID: 336771811}
   - component: {fileID: 336771812}
   - component: {fileID: 336771813}
+  - component: {fileID: 336771814}
   m_Layer: 3
   m_Name: Venezuela
   m_TagString: Country
@@ -1184,6 +1257,23 @@ PolygonCollider2D:
       - {x: -6.691992, y: -1.7323241}
       - {x: -6.5140133, y: -1.6492676}
   m_UseDelaunayMesh: 0
+--- !u!114 &336771814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336771810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &395172386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1285,7 @@ GameObject:
   - component: {fileID: 395172387}
   - component: {fileID: 395172388}
   - component: {fileID: 395172389}
+  - component: {fileID: 395172390}
   m_Layer: 3
   m_Name: Western United States
   m_TagString: Country
@@ -1344,6 +1435,23 @@ PolygonCollider2D:
       - {x: -8.103955, y: 1.4356933}
       - {x: -8.103955, y: 1.6018066}
   m_UseDelaunayMesh: 0
+--- !u!114 &395172390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395172386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &460134441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1463,7 @@ GameObject:
   - component: {fileID: 460134442}
   - component: {fileID: 460134443}
   - component: {fileID: 460134444}
+  - component: {fileID: 460134445}
   m_Layer: 3
   m_Name: New Guinea
   m_TagString: Country
@@ -1519,6 +1628,23 @@ PolygonCollider2D:
       - {x: 11.355029, y: -2.8239257}
       - {x: 11.319433, y: -2.7764647}
   m_UseDelaunayMesh: 0
+--- !u!114 &460134445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460134441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &468091233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1656,7 @@ GameObject:
   - component: {fileID: 468091234}
   - component: {fileID: 468091235}
   - component: {fileID: 468091236}
+  - component: {fileID: 468091237}
   m_Layer: 3
   m_Name: North Africa
   m_TagString: Country
@@ -1706,6 +1833,23 @@ PolygonCollider2D:
       - {x: 0.13051757, y: -3.3815918}
       - {x: 0.2847656, y: -3.191748}
   m_UseDelaunayMesh: 0
+--- !u!114 &468091237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468091233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &593959754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1861,7 @@ GameObject:
   - component: {fileID: 593959755}
   - component: {fileID: 593959756}
   - component: {fileID: 593959757}
+  - component: {fileID: 593959758}
   m_Layer: 3
   m_Name: Kamchatka
   m_TagString: Country
@@ -1940,6 +2085,23 @@ PolygonCollider2D:
       - {x: 9.088769, y: 3.0256348}
       - {x: 9.076904, y: 3.298535}
   m_UseDelaunayMesh: 0
+--- !u!114 &593959758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593959754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &611072696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2254,7 @@ GameObject:
   - component: {fileID: 614422070}
   - component: {fileID: 614422071}
   - component: {fileID: 614422072}
+  - component: {fileID: 614422073}
   m_Layer: 3
   m_Name: Western Europe
   m_TagString: Country
@@ -2258,6 +2421,23 @@ PolygonCollider2D:
       - {x: -1.5424805, y: -0.09492187}
       - {x: -1.5068847, y: 0.023730468}
   m_UseDelaunayMesh: 0
+--- !u!114 &614422073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614422069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &760533589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2449,7 @@ GameObject:
   - component: {fileID: 760533590}
   - component: {fileID: 760533591}
   - component: {fileID: 760533592}
+  - component: {fileID: 760533593}
   m_Layer: 3
   m_Name: East Africa
   m_TagString: Country
@@ -2447,6 +2628,23 @@ PolygonCollider2D:
       - {x: 1.8153808, y: -5.2088375}
       - {x: 2.0645506, y: -5.090185}
   m_UseDelaunayMesh: 0
+--- !u!114 &760533593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760533589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &790390281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2758,7 @@ GameObject:
   - component: {fileID: 868738038}
   - component: {fileID: 868738039}
   - component: {fileID: 868738040}
+  - component: {fileID: 868738041}
   m_Layer: 3
   m_Name: Southern Europe
   m_TagString: Country
@@ -2737,6 +2936,23 @@ PolygonCollider2D:
       - {x: -0.26103514, y: 0.09492187}
       - {x: -0.2847656, y: 0.24916992}
   m_UseDelaunayMesh: 0
+--- !u!114 &868738041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868738037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &902216101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2964,7 @@ GameObject:
   - component: {fileID: 902216102}
   - component: {fileID: 902216103}
   - component: {fileID: 902216104}
+  - component: {fileID: 902216105}
   m_Layer: 3
   m_Name: Ontario
   m_TagString: Country
@@ -2880,6 +3097,23 @@ PolygonCollider2D:
       - {x: -6.395361, y: 3.8087401}
       - {x: -6.478418, y: 3.8799314}
   m_UseDelaunayMesh: 0
+--- !u!114 &902216105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902216101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &910091836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +3161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927434666}
   - component: {fileID: 927434665}
+  - component: {fileID: 927434667}
   m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
@@ -3001,6 +3236,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2008245360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927434667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927434664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &971739029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3264,7 @@ GameObject:
   - component: {fileID: 971739030}
   - component: {fileID: 971739032}
   - component: {fileID: 971739033}
+  - component: {fileID: 971739034}
   m_Layer: 3
   m_Name: Afghanistan
   m_TagString: Country
@@ -3188,6 +3441,23 @@ PolygonCollider2D:
       - {x: 4.2240233, y: 0.78310543}
       - {x: 4.473193, y: 0.94921875}
   m_UseDelaunayMesh: 0
+--- !u!114 &971739034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971739029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1017434720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3199,6 +3469,7 @@ GameObject:
   - component: {fileID: 1017434721}
   - component: {fileID: 1017434722}
   - component: {fileID: 1017434723}
+  - component: {fileID: 1017434724}
   m_Layer: 3
   m_Name: South Africa
   m_TagString: Country
@@ -3373,6 +3644,23 @@ PolygonCollider2D:
       - {x: 1.4475585, y: -7.166601}
       - {x: 1.5068847, y: -6.9292965}
   m_UseDelaunayMesh: 0
+--- !u!114 &1017434724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017434720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1038138004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,6 +3672,7 @@ GameObject:
   - component: {fileID: 1038138005}
   - component: {fileID: 1038138006}
   - component: {fileID: 1038138007}
+  - component: {fileID: 1038138008}
   m_Layer: 3
   m_Name: Southeast Asia
   m_TagString: Country
@@ -3545,6 +3834,23 @@ PolygonCollider2D:
       - {x: 7.522558, y: -2.3967772}
       - {x: 7.4157715, y: -2.230664}
   m_UseDelaunayMesh: 0
+--- !u!114 &1038138008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038138004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1187392151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,6 +3862,7 @@ GameObject:
   - component: {fileID: 1187392152}
   - component: {fileID: 1187392153}
   - component: {fileID: 1187392154}
+  - component: {fileID: 1187392155}
   m_Layer: 3
   m_Name: Peru
   m_TagString: Country
@@ -3721,6 +4028,23 @@ PolygonCollider2D:
       - {x: -5.1495113, y: -4.259619}
       - {x: -5.2444334, y: -3.9985838}
   m_UseDelaunayMesh: 0
+--- !u!114 &1187392155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187392151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1196990262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3732,6 +4056,7 @@ GameObject:
   - component: {fileID: 1196990263}
   - component: {fileID: 1196990264}
   - component: {fileID: 1196990265}
+  - component: {fileID: 1196990266}
   m_Layer: 3
   m_Name: Great Britain
   m_TagString: Country
@@ -3903,6 +4228,23 @@ PolygonCollider2D:
       - {x: -2.53916, y: 1.8865722}
       - {x: -2.3018553, y: 1.9221679}
   m_UseDelaunayMesh: 0
+--- !u!114 &1196990266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196990262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1228544830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,6 +4256,7 @@ GameObject:
   - component: {fileID: 1228544831}
   - component: {fileID: 1228544832}
   - component: {fileID: 1228544833}
+  - component: {fileID: 1228544834}
   m_Layer: 3
   m_Name: Alaska
   m_TagString: Country
@@ -4081,6 +4424,23 @@ PolygonCollider2D:
       - {x: -9.63457, y: 4.2240233}
       - {x: -9.63457, y: 4.2952147}
   m_UseDelaunayMesh: 0
+--- !u!114 &1228544834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228544830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1304967267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4092,6 +4452,7 @@ GameObject:
   - component: {fileID: 1304967268}
   - component: {fileID: 1304967269}
   - component: {fileID: 1304967270}
+  - component: {fileID: 1304967271}
   m_Layer: 3
   m_Name: China
   m_TagString: Country
@@ -4293,6 +4654,23 @@ PolygonCollider2D:
       - {x: 8.732812, y: -0.35595703}
       - {x: 8.732812, y: -0.17797852}
   m_UseDelaunayMesh: 0
+--- !u!114 &1304967271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304967267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1345912116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4304,6 +4682,7 @@ GameObject:
   - component: {fileID: 1345912117}
   - component: {fileID: 1345912118}
   - component: {fileID: 1345912119}
+  - component: {fileID: 1345912120}
   m_Layer: 3
   m_Name: Madagascar
   m_TagString: Country
@@ -4448,6 +4827,23 @@ PolygonCollider2D:
       - {x: 2.9663086, y: -6.893701}
       - {x: 3.096826, y: -6.739453}
   m_UseDelaunayMesh: 0
+--- !u!114 &1345912120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345912116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1371810976
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,6 +4855,7 @@ GameObject:
   - component: {fileID: 1371810977}
   - component: {fileID: 1371810978}
   - component: {fileID: 1371810979}
+  - component: {fileID: 1371810980}
   m_Layer: 3
   m_Name: Brazil
   m_TagString: Country
@@ -4645,6 +5042,23 @@ PolygonCollider2D:
       - {x: -4.615576, y: -4.6986327}
       - {x: -4.5325193, y: -4.5325193}
   m_UseDelaunayMesh: 0
+--- !u!114 &1371810980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371810976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1412852309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +5070,7 @@ GameObject:
   - component: {fileID: 1412852310}
   - component: {fileID: 1412852311}
   - component: {fileID: 1412852312}
+  - component: {fileID: 1412852313}
   m_Layer: 3
   m_Name: Greenland
   m_TagString: Country
@@ -4853,6 +5268,23 @@ PolygonCollider2D:
       - {x: -4.1291013, y: 4.734228}
       - {x: -4.010449, y: 4.8410153}
   m_UseDelaunayMesh: 0
+--- !u!114 &1412852313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412852309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1467660311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4864,6 +5296,7 @@ GameObject:
   - component: {fileID: 1467660312}
   - component: {fileID: 1467660313}
   - component: {fileID: 1467660314}
+  - component: {fileID: 1467660315}
   m_Layer: 3
   m_Name: Central America
   m_TagString: Country
@@ -5031,6 +5464,23 @@ PolygonCollider2D:
       - {x: -7.4276366, y: -0.9373535}
       - {x: -7.451367, y: -0.8898926}
   m_UseDelaunayMesh: 0
+--- !u!114 &1467660315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467660311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1518888655
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,6 +5492,7 @@ GameObject:
   - component: {fileID: 1518888656}
   - component: {fileID: 1518888657}
   - component: {fileID: 1518888658}
+  - component: {fileID: 1518888659}
   m_Layer: 3
   m_Name: Japan
   m_TagString: Country
@@ -5211,6 +5662,23 @@ PolygonCollider2D:
       - {x: 9.349804, y: 1.1865234}
       - {x: 9.504052, y: 1.3763671}
   m_UseDelaunayMesh: 0
+--- !u!114 &1518888659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518888655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1518963678
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,6 +5690,7 @@ GameObject:
   - component: {fileID: 1518963679}
   - component: {fileID: 1518963680}
   - component: {fileID: 1518963681}
+  - component: {fileID: 1518963682}
   m_Layer: 3
   m_Name: Central Africa
   m_TagString: Country
@@ -5377,6 +5846,23 @@ PolygonCollider2D:
       - {x: 1.2577147, y: -4.876611}
       - {x: 1.3289062, y: -4.7460938}
   m_UseDelaunayMesh: 0
+--- !u!114 &1518963682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518963678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1550566568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5388,6 +5874,7 @@ GameObject:
   - component: {fileID: 1550566569}
   - component: {fileID: 1550566570}
   - component: {fileID: 1550566571}
+  - component: {fileID: 1550566572}
   m_Layer: 3
   m_Name: Russia
   m_TagString: Country
@@ -5651,6 +6138,23 @@ PolygonCollider2D:
       - {x: 2.693408, y: 0.7000488}
       - {x: 2.8120604, y: 0.81870115}
   m_UseDelaunayMesh: 0
+--- !u!114 &1550566572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550566568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1573064155
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +6166,7 @@ GameObject:
   - component: {fileID: 1573064156}
   - component: {fileID: 1573064157}
   - component: {fileID: 1573064158}
+  - component: {fileID: 1573064159}
   m_Layer: 3
   m_Name: Argentina
   m_TagString: Country
@@ -5847,6 +6352,23 @@ PolygonCollider2D:
       - {x: -5.458008, y: -7.6649413}
       - {x: -5.434277, y: -7.6412106}
   m_UseDelaunayMesh: 0
+--- !u!114 &1573064159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573064155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1601944692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5858,6 +6380,7 @@ GameObject:
   - component: {fileID: 1601944693}
   - component: {fileID: 1601944694}
   - component: {fileID: 1601944695}
+  - component: {fileID: 1601944696}
   m_Layer: 3
   m_Name: Alberta
   m_TagString: Country
@@ -5995,6 +6518,23 @@ PolygonCollider2D:
       - {x: -7.902246, y: 3.251074}
       - {x: -7.8785152, y: 4.3189454}
   m_UseDelaunayMesh: 0
+--- !u!114 &1601944696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601944692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1671457679
 GameObject:
   m_ObjectHideFlags: 0
@@ -6006,6 +6546,7 @@ GameObject:
   - component: {fileID: 1671457680}
   - component: {fileID: 1671457681}
   - component: {fileID: 1671457682}
+  - component: {fileID: 1671457683}
   m_Layer: 3
   m_Name: Eastern United States
   m_TagString: Country
@@ -6221,6 +6762,23 @@ PolygonCollider2D:
       - {x: -7.0123534, y: 3.2629395}
       - {x: -7.131006, y: 3.2629395}
   m_UseDelaunayMesh: 0
+--- !u!114 &1671457683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671457679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1684530858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6232,6 +6790,7 @@ GameObject:
   - component: {fileID: 1684530859}
   - component: {fileID: 1684530860}
   - component: {fileID: 1684530861}
+  - component: {fileID: 1684530862}
   m_Layer: 3
   m_Name: Scandinavia
   m_TagString: Country
@@ -6408,6 +6967,23 @@ PolygonCollider2D:
       - {x: -0.011865234, y: 3.6544921}
       - {x: 0.15424804, y: 4.010449}
   m_UseDelaunayMesh: 0
+--- !u!114 &1684530862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684530858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1689251779
 GameObject:
   m_ObjectHideFlags: 0
@@ -6419,6 +6995,7 @@ GameObject:
   - component: {fileID: 1689251780}
   - component: {fileID: 1689251781}
   - component: {fileID: 1689251782}
+  - component: {fileID: 1689251783}
   m_Layer: 3
   m_Name: Iceland
   m_TagString: Country
@@ -6563,6 +7140,23 @@ PolygonCollider2D:
       - {x: -1.5662109, y: 4.2833495}
       - {x: -1.4950194, y: 4.3426757}
   m_UseDelaunayMesh: 0
+--- !u!114 &1689251783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689251779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1722727015
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,6 +7168,7 @@ GameObject:
   - component: {fileID: 1722727016}
   - component: {fileID: 1722727017}
   - component: {fileID: 1722727018}
+  - component: {fileID: 1722727019}
   m_Layer: 3
   m_Name: Indonesia
   m_TagString: Country
@@ -6774,6 +7369,23 @@ PolygonCollider2D:
       - {x: 7.3445797, y: -4.520654}
       - {x: 7.463232, y: -4.3901367}
   m_UseDelaunayMesh: 0
+--- !u!114 &1722727019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722727015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1748199442
 GameObject:
   m_ObjectHideFlags: 0
@@ -6785,6 +7397,7 @@ GameObject:
   - component: {fileID: 1748199443}
   - component: {fileID: 1748199444}
   - component: {fileID: 1748199445}
+  - component: {fileID: 1748199446}
   m_Layer: 3
   m_Name: Siberia
   m_TagString: Country
@@ -7000,6 +7613,23 @@ PolygonCollider2D:
       - {x: 6.1105957, y: 2.7171385}
       - {x: 6.146191, y: 3.0730956}
   m_UseDelaunayMesh: 0
+--- !u!114 &1748199446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748199442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1820564724
 GameObject:
   m_ObjectHideFlags: 0
@@ -7011,6 +7641,7 @@ GameObject:
   - component: {fileID: 1820564725}
   - component: {fileID: 1820564726}
   - component: {fileID: 1820564727}
+  - component: {fileID: 1820564728}
   m_Layer: 3
   m_Name: Northern Europe
   m_TagString: Country
@@ -7172,6 +7803,23 @@ PolygonCollider2D:
       - {x: 0.46274412, y: 1.8984375}
       - {x: 0.49833983, y: 1.9814941}
   m_UseDelaunayMesh: 0
+--- !u!114 &1820564728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820564724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1840721544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7183,6 +7831,7 @@ GameObject:
   - component: {fileID: 1840721545}
   - component: {fileID: 1840721546}
   - component: {fileID: 1840721547}
+  - component: {fileID: 1840721548}
   m_Layer: 3
   m_Name: Ural
   m_TagString: Country
@@ -7378,6 +8027,23 @@ PolygonCollider2D:
       - {x: 4.0816407, y: 7.451367}
       - {x: 4.2952147, y: 7.510693}
   m_UseDelaunayMesh: 0
+--- !u!114 &1840721548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840721544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1859078913
 GameObject:
   m_ObjectHideFlags: 0
@@ -7389,6 +8055,7 @@ GameObject:
   - component: {fileID: 1859078914}
   - component: {fileID: 1859078915}
   - component: {fileID: 1859078916}
+  - component: {fileID: 1859078917}
   m_Layer: 3
   m_Name: Northwest Territory
   m_TagString: Country
@@ -7563,6 +8230,23 @@ PolygonCollider2D:
       - {x: -6.9767575, y: 5.125781}
       - {x: -7.0360837, y: 5.173242}
   m_UseDelaunayMesh: 0
+--- !u!114 &1859078917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859078913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &1902655523
 GameObject:
   m_ObjectHideFlags: 0
@@ -7574,6 +8258,7 @@ GameObject:
   - component: {fileID: 1902655524}
   - component: {fileID: 1902655525}
   - component: {fileID: 1902655526}
+  - component: {fileID: 1902655527}
   m_Layer: 3
   m_Name: Irkutsk
   m_TagString: Country
@@ -7748,6 +8433,23 @@ PolygonCollider2D:
       - {x: 7.6174803, y: 3.3697264}
       - {x: 7.605615, y: 3.547705}
   m_UseDelaunayMesh: 0
+--- !u!114 &1902655527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!4 &2008245360
 Transform:
   m_ObjectHideFlags: 0
@@ -7858,6 +8560,7 @@ GameObject:
   - component: {fileID: 2020229815}
   - component: {fileID: 2020229816}
   - component: {fileID: 2020229817}
+  - component: {fileID: 2020229818}
   m_Layer: 3
   m_Name: Egypt
   m_TagString: Country
@@ -8005,6 +8708,23 @@ PolygonCollider2D:
       - {x: 1.1271973, y: -1.8509765}
       - {x: 1.51875, y: -1.8984375}
   m_UseDelaunayMesh: 0
+--- !u!114 &2020229818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020229814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &2097692851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8016,6 +8736,7 @@ GameObject:
   - component: {fileID: 2097692852}
   - component: {fileID: 2097692853}
   - component: {fileID: 2097692854}
+  - component: {fileID: 2097692855}
   m_Layer: 3
   m_Name: India
   m_TagString: Country
@@ -8200,6 +8921,23 @@ PolygonCollider2D:
       - {x: 5.6241207, y: -2.2899902}
       - {x: 5.8495603, y: -1.9933593}
   m_UseDelaunayMesh: 0
+--- !u!114 &2097692855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097692851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &2120097535
 GameObject:
   m_ObjectHideFlags: 0
@@ -8211,6 +8949,7 @@ GameObject:
   - component: {fileID: 2120097536}
   - component: {fileID: 2120097537}
   - component: {fileID: 2120097538}
+  - component: {fileID: 2120097539}
   m_Layer: 3
   m_Name: Western Australia
   m_TagString: Country
@@ -8384,6 +9123,23 @@ PolygonCollider2D:
       - {x: 9.836279, y: -7.249658}
       - {x: 9.729492, y: -7.297119}
   m_UseDelaunayMesh: 0
+--- !u!114 &2120097539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120097535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1 &2147124771
 GameObject:
   m_ObjectHideFlags: 0
@@ -8395,6 +9151,7 @@ GameObject:
   - component: {fileID: 2147124772}
   - component: {fileID: 2147124773}
   - component: {fileID: 2147124774}
+  - component: {fileID: 2147124775}
   m_Layer: 3
   m_Name: Middle East
   m_TagString: Country
@@ -8598,6 +9355,23 @@ PolygonCollider2D:
       - {x: 3.4883788, y: -2.2425292}
       - {x: 3.6188965, y: -2.0170898}
   m_UseDelaunayMesh: 0
+--- !u!114 &2147124775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147124771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3811d121ca941418ec4fc7b4a5f680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnable: 0
+  isSelected: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  currentPlayer: {fileID: 0}
+  army: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
