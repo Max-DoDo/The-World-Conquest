@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ using UnityEngine.PlayerLoop;
 /// <author>
 /// 
 /// </author>
-public class Counrty : MonoBehaviour
+public class Country : MonoBehaviour
 {
     /// <summary>
     /// 
@@ -52,6 +53,13 @@ public class Counrty : MonoBehaviour
         init();
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name= "">  </param>
+    /// <returns>
+    /// 
+    /// </returns>
     private void init(){
         this.GetComponent<SpriteRenderer>().color = color;
     }
@@ -60,4 +68,8 @@ public class Counrty : MonoBehaviour
         
     }
 
+    public static explicit operator Country(GameObject v)
+    {
+        throw new NotImplementedException();
+    }
 }

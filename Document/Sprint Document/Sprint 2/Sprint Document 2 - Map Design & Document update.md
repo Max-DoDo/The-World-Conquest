@@ -75,7 +75,7 @@
 
   * This task will be accomplished by  `Weiyi Sun`
 
-* Minutes of the meeting
+* Recording meeting log
 
   * This task will be accomplished by  `Zhenmao Song`
 

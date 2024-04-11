@@ -126,7 +126,6 @@ public class Camera_Controller : MonoBehaviour
 
     private void MoveCamera()
     {
-
         if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0){
             return;
         }
@@ -160,8 +159,8 @@ public class Camera_Controller : MonoBehaviour
 
         newPosition.x = Mathf.Clamp(newPosition.x, MinXY.x, MaxXY.x);
         newPosition.y = Mathf.Clamp(newPosition.y, MinXY.y, MaxXY.y);
-        Debug.Log(MinXY);
-        Debug.Log(MaxXY);
+        // Debug.Log(MinXY);
+        // Debug.Log(MaxXY);
         
         transform.position = newPosition;
 
@@ -192,7 +191,7 @@ public class Camera_Controller : MonoBehaviour
         {
             offset = -mouseWheelSpeed * 3;
         }
-        float halfsecond =  1 / Time.deltaTime / 8;
+        float halfsecond =  1 / Time.deltaTime / 20;
         float movementValue = mouseWheelSpeed / halfsecond;
 
         if (Camera.main.orthographicSize + movementValue < maxZoomSize && offset > movementValue)
