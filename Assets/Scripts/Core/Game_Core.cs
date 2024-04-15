@@ -41,7 +41,7 @@ public class Game_Core : MonoBehaviour
         gameMode += Constant.GameMode_SetTroop;
         bool isTroopRemain = true;
 
-        while (isTroopRemain)
+        /*while (isTroopRemain)
         {
             foreach(Player player in players){
                 if(player.IsAI()){
@@ -53,10 +53,23 @@ public class Game_Core : MonoBehaviour
             }
 
 
+        }*/
+        foreach (Player player in players)
+        {
+            if (player.IsAI())
+            {
+                AISetTroop(player);
+            }
+            else
+            {
+                player.SelectCountry();
+            }
         }
-
     }
 
+    private void AISetTroop(Player aiPlayer)
+    { 
+    }
     private void loop(){
 
     }
