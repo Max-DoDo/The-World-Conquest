@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     public bool CanSelect;
 
+    public Color color;
+
     public Player(Client client){
         numberCount += 1;
         isAI = false;
@@ -41,17 +43,23 @@ public class Player : MonoBehaviour
     }
 
     public void selectCountry(Country country){
-        Debug.Log("select " + country);
-        GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopCallBack();
+        if(!country.isOwned()){
+            country.setOwner(this);
+        }else{
+            Debug.Log("This Country already has a owner");
+            // TODO show text in UI
+            return;
+        }
+        GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopCallBack(country);
         
     }
 
-    public int GetPlayerNumber(){
+    public int GetNumber(){
         return number;
     }
 
-    public void SetPlayerNumber(int PlayerNumber){
-        this.number = PlayerNumber;
+    public void SetNumber(int number){
+        this.number = number;
     }
 
     public bool IsAI(){
@@ -66,4 +74,8 @@ public class Player : MonoBehaviour
     // {
     //     throw new NotImplementedException();
     // }
+
+    public override string ToString(){
+        return "[Player " + number + "]";
+    }
 }

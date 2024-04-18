@@ -12,7 +12,7 @@ public class Client : MonoBehaviour
     public void SelectCountry(Country country){
         
         Game_Core game_Core = GameObject.Find("Logic_Core").GetComponent<Game_Core>();
-        if(game_Core.gameMode == Constant.GameMode_SetTroop){
+        if(game_Core.gameMode == Constant.GAMEMODE_SETTROOP){
             setTroop();
         }
     }

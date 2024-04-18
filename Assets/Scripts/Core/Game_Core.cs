@@ -28,16 +28,23 @@ public class Game_Core : MonoBehaviour
 
     private void init(){
         countrys = GameObject.FindObjectsOfType<Country>();
-        gameMode = Constant.GameMode_SetTroop;
+        gameMode = Constant.GAMEMODE_SETTROOP;
 
-        int tempPlayerNumber = 1;
+        int index = 0;
         foreach (Player player in players)
         {
             player.isEnable = true;
             player.CanSelect = false;
-            player.SetPlayerNumber(tempPlayerNumber);
-            tempPlayerNumber++;
+            player.SetNumber(index + 1);
+            player.color = Constant.PLAYER_COLORS[index];
+            // Debug.Log("Player: " + player.GetPlayerNumber());
+            // Debug.Log("Player Color: " + player.color);
+            index++;
         }
+
+        // Debug.Log(players.Length);
+        // Debug.Log(Constant.PLAYER_COLORS.Length);
+        
 
         resetCurrentPlayer();
         setTroop();
@@ -48,9 +55,8 @@ public class Game_Core : MonoBehaviour
         
     }
 
-    public void setTroopCallBack(){
+    public void setTroopCallBack(Country country){
         //check if anybody already used all init troops
-        Debug.Log(players[0].CanSelect);
         ArrayList jumpoff = new ArrayList();
         foreach (Player player in players)
         {
@@ -60,7 +66,7 @@ public class Game_Core : MonoBehaviour
         }
 
         if(jumpoff.Count < players.Length){
-            NextPlayer(jumpoff);
+                NextPlayer(jumpoff);
         }else{
             resetCurrentPlayer();
             //gamerun

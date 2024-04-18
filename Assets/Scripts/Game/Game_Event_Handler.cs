@@ -23,8 +23,6 @@ public class Game_Event_Handler : MonoBehaviour
             
             //get the object be collded.
             GameObject hitObject = hit.collider.gameObject;
-            hitObject.GetComponent<SpriteRenderer>().color = Color.red;
-
             GameObject[] gameObjectsWithTag = GameObject.FindGameObjectsWithTag("Player");
             List<Player> players = new List<Player>();
 
