@@ -20,12 +20,6 @@ public class Player : MonoBehaviour
 
     public Color color;
 
-    public Player(Client client){
-        numberCount += 1;
-
-        init();
-    }
-
     public Player(){
         numberCount += 1;
     }

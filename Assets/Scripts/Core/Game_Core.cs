@@ -127,7 +127,7 @@ public class Game_Core : MonoBehaviour
     }
 
     private void updateUI(){
-            GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayerText(currentPlayer);
+        GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayerText(currentPlayer);
         GameObject.Find("UI").GetComponent<UIManager>().setTroopsText(ClientPlayer.troops);
     }
 
