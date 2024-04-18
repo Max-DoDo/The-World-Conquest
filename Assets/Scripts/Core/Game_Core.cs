@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Game_Core : MonoBehaviour
@@ -31,7 +32,7 @@ public class Game_Core : MonoBehaviour
 
     private void init(){
         countrys = GameObject.FindObjectsOfType<Country>();
-        gameMode = Constant.GAMEMODE_SETTROOP;
+        gameMode = Constant.GAMEMODE_INITCOUNTRY;
 
         int index = 0;
         foreach (Player player in players)
@@ -54,15 +55,15 @@ public class Game_Core : MonoBehaviour
         
 
         resetCurrentPlayer();
-        setTroop();
+
         
     }
 
-    private void setTroop(){
-        
+    private void run(){
+        gameMode = Constant.GAMEMODE_SETTROOP;
     }
 
-    public void setTroopCallBack(Country country){
+    public void initSetTroopCallBack(){
         //check if anybody already used all init troops
         ArrayList jumpoff = new ArrayList();
         foreach (Player player in players)
@@ -77,16 +78,35 @@ public class Game_Core : MonoBehaviour
         }else{
             resetCurrentPlayer();
             //gamerun
+            run();
             Debug.Log("===== Game Run =====");
             
         }
 
     }
 
-    private void AISetTroop(Player aiPlayer)
-    { 
+    public void setTroopCallBack(){
 
     }
+
+    public void switchCardCallBack(){
+
+    }
+
+    public void attackCallBack(){
+
+    }
+
+    public void defenseCallBack(){
+
+    }
+
+    public void endPhaseCallBack(){
+
+    }
+
+
+    
 
     private void NextPlayer(ArrayList jumpOffPlayers = null)
     {

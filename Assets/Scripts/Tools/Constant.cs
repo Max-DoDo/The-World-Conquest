@@ -9,10 +9,10 @@ public class Constant
     public const int GAMEMODE_SINGLEPLAYER = 1;
     public const int GAMEMODE_MUTIPLAYER = 2;
     public const int GAMEMODE_SETTROOP = 4;
-    public const int GAMEMODE_SWITCHCARDS = 8;
-    public const int GAMEMODE_ATTACK = 16;
-    public const int GAMEMODE_MOVEMENT = 32;
-    public const int GAMEMODE_DEFENSE = 64;
+    public const int GAMEMODE_INITCOUNTRY = 3;
+    public const int GAMEMODE_ATTACK = 8;
+    public const int GAMEMODE_MOVEMENT = 16;
+    public const int GAMEMODE_DEFENSE = 32;
 
     public const int CONTINENT_ASIA = 1;
     public const int CONTINENT_AFRICA = 2;

@@ -31,18 +31,27 @@ public class Player : MonoBehaviour
 
     }
 
-    public void selectCountry(Country country){
+    public void MouseEventCallBack(Country country){
+        int gamemode = GameObject.Find("Logic_Core").GetComponent<Game_Core>().gameMode;
+
+        if(gamemode == Constant.GAMEMODE_INITCOUNTRY){
+            initSelectCountry(country);
+            return;
+        }
+        
+    }
+
+    private void initSelectCountry(Country country){
         if(!country.isOwned() && troops >= 5){
             country.setOwner(this);
             country.addTroops(5);
             troops -= 5;
         }else{
             Debug.Log("This Country already has a owner");
-            // TODO show text in UI
+            GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("This Country already has a owner");
             return;
         }
-        GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopCallBack(country);
-        
+        GameObject.Find("Logic_Core").GetComponent<Game_Core>().initSetTroopCallBack();
     }
 
     public int GetNumber(){
