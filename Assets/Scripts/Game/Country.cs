@@ -17,23 +17,22 @@ public class Country : MonoBehaviour
 
     private Player owner;
 
-    private int army;
+    private int troops;
 
     public int continent;
 
 
     void Start()
     {
-        isEnable = true;
-        color = Color.white;
-        army = 0;
-
         init();
     }
 
     private void init()
     {
-        this.GetComponent<SpriteRenderer>().color = color;
+        isEnable = true;
+        color = Color.white;
+        troops = 0;
+        // this.GetComponent<SpriteRenderer>().color = color;
     }
 
     public Player getOwner(){
@@ -52,7 +51,7 @@ public class Country : MonoBehaviour
         this.owner = player;
         this.color = player.color;
         this.GetComponent<SpriteRenderer>().color = color;
-        this.army = 1;
+        this.troops = 1;
         Debug.Log("set owner:" + player + "Color" + this.GetComponent<SpriteRenderer>().color);
     }
 
@@ -60,7 +59,19 @@ public class Country : MonoBehaviour
         this.owner = player;
         this.color = player.color;
         this.GetComponent<SpriteRenderer>().color = color;
-        this.army = army;
+        this.troops = army;
+    }
+
+    public int getTroops(){
+        return troops;
+    }
+
+    public void setTroops(int troops){
+        this.troops = troops;
+    }
+
+    public void addTroops(int troops){
+        this.troops += troops;
     }
 
 

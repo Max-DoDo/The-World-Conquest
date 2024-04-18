@@ -1,25 +1,17 @@
-using System;
-using System.Collections;
+
 using UnityEngine;
-using UnityEngine.XR;
 
-public class Client : MonoBehaviour
+public class Client: MonoBehaviour
 {   
-    public delegate void CountrySelectionHandler(object sender, CountrySelectedEventArgs args);
+    public Player player;
 
-    private Player player;
+    public void setPlayer(Player player){
+        this.player = player;
+        updateInformationPanel();
+    }
 
-    public void SelectCountry(Country country){
+    private void updateInformationPanel(){
         
-        Game_Core game_Core = GameObject.Find("Logic_Core").GetComponent<Game_Core>();
-        if(game_Core.gameMode == Constant.GAMEMODE_SETTROOP){
-            setTroop();
-        }
     }
-
-    private void setTroop(){
-
-    }
-
 
 }

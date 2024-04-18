@@ -1,9 +1,8 @@
 
 using System;
 using System.Collections;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.AI;
 
 public class Game_Core : MonoBehaviour
 {
@@ -20,6 +19,10 @@ public class Game_Core : MonoBehaviour
 
     private Country[] countrys;
 
+    private List<Client> clients;
+
+    private Player ClientPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,9 @@ public class Game_Core : MonoBehaviour
         int index = 0;
         foreach (Player player in players)
         {
+            if(player.mode == Constant.PLAYER_MODE_CLIENT){
+                ClientPlayer = player;
+            }
             player.isEnable = true;
             player.CanSelect = false;
             player.SetNumber(index + 1);
@@ -41,6 +47,7 @@ public class Game_Core : MonoBehaviour
             // Debug.Log("Player Color: " + player.color);
             index++;
         }
+
 
         // Debug.Log(players.Length);
         // Debug.Log(Constant.PLAYER_COLORS.Length);
@@ -60,7 +67,7 @@ public class Game_Core : MonoBehaviour
         ArrayList jumpoff = new ArrayList();
         foreach (Player player in players)
         {
-            if(player.initTroops <= 0){
+            if(player.troops <= 0){
                 jumpoff.Add(player);
             }
         }
@@ -100,8 +107,8 @@ public class Game_Core : MonoBehaviour
         }
 
         currentPlayer = players[nextIndex];
-        GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayer(currentPlayer);
         currentPlayer.CanSelect = true;
+        updateUI();
         Debug.Log("CurrentPlayer: " + currentPlayer.number);
     }
 
@@ -117,6 +124,11 @@ public class Game_Core : MonoBehaviour
         }
         currentPlayer = players[0];
         currentPlayer.CanSelect = true;
+    }
+
+    private void updateUI(){
+            GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayerText(currentPlayer);
+        GameObject.Find("UI").GetComponent<UIManager>().setTroopsText(ClientPlayer.troops);
     }
 
 

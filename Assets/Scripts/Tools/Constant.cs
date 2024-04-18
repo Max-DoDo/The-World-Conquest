@@ -41,4 +41,9 @@ public class Constant
         PLAYER7_COLOR,
         PLAYER8_COLOR
     };
+
+    public const int PLAYER_MODE_CLIENT = 0;
+    public const int PLAYER_MODE_HOTSET = 1;
+    public const int PLAYER_MODE_INTERNET = 2;
+    public const int PLAYER_MODE_AI = -1;
 }

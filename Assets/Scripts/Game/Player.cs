@@ -10,11 +10,9 @@ public class Player : MonoBehaviour
 
     public int number;
 
-    public int initTroops;
-
     public int troops;
 
-    public bool isAI;
+    public int mode;
 
     public bool isEnable;
 
@@ -24,27 +22,26 @@ public class Player : MonoBehaviour
 
     public Player(Client client){
         numberCount += 1;
-        isAI = false;
 
         init();
     }
 
     public Player(){
         numberCount += 1;
-        isAI = true;
     }
 
     private void init(){
         this.number = numberCount;
-        initTroops = 20;
-        troops = 0;
+        troops = 20;
 
 
     }
 
     public void selectCountry(Country country){
-        if(!country.isOwned()){
+        if(!country.isOwned() && troops >= 5){
             country.setOwner(this);
+            country.addTroops(5);
+            troops -= 5;
         }else{
             Debug.Log("This Country already has a owner");
             // TODO show text in UI
@@ -60,14 +57,6 @@ public class Player : MonoBehaviour
 
     public void SetNumber(int number){
         this.number = number;
-    }
-
-    public bool IsAI(){
-        return isAI;
-    }
-
-    public void RevAI(){
-        isAI = !isAI;
     }
 
     // internal List<Country> GetControlledCountries()
