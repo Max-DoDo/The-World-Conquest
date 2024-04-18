@@ -1,5 +1,41 @@
 # The World Conquest CHANGELOG
 
+---
+
+## [0.2.0] - 2024-04-19
+
+### Added
+
+* This game now will run by the event handle by user instead of a "Game Core".
+* Each player has its own represent color now.
+* Now each player can choose a series of countries to start.
+* Now each player start with 20 troops.
+* Added information panel.
+* Added "Current player" text and "troop" text in information panel.
+* Added a setting button in the game scene. It do nothing right now.
+* The UI panel can run in almost different resolution.
+* The UI panel can display the "The player currently operating the computer"'s information now.
+* new information panel UI.
+* Unfinished player AI, currently not able to use.
+* button click sound.
+* A constant class for storage the static value.
+* A 3D project for dice.
+* A series of button UI.
+* User avatar UI
+* number from 0 to 9 UI.
+
+### Changed
+
+* The maxinum player number decrised to 6 from 8.
+* Change the structure of UI folder.
+* A series of code refactoring.
+
+### Removed
+
+* Client class has been removed.
+
+---
+
 ## [0.1.0-Beta] - 2024-03-21
 
 ### Fixed
