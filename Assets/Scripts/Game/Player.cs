@@ -8,31 +8,42 @@ public class Player : MonoBehaviour
 
     private static int playerNumberCount = 0;
 
-    private int playerNumber;
+    public int playerNumber;
 
-    private int troops;
+    public int initTroops;
 
-    private bool isAI;
+    public int troops;
 
-    private Client client;
-    
+    public bool isAI;
+
+    public bool isEnable;
+
+    public bool CanSelect;
+
     public Player(Client client){
-        this.playerNumber = playerNumberCount;
         playerNumberCount += 1;
         isAI = false;
+
+        init();
     }
 
-    public Player(/*AI*/){
-        this.playerNumber = playerNumberCount;
+    public Player(){
         playerNumberCount += 1;
         isAI = true;
     }
 
-    public Country selectCountry(){
-        
+    private void init(){
+        this.playerNumber = playerNumberCount;
+        initTroops = 20;
+        troops = 0;
+
+
     }
 
-
+    public void selectCountry(Country country){
+        Debug.Log("select" + country);
+        
+    }
 
     public int GetPlayerNumber(){
         return playerNumber;
@@ -50,8 +61,8 @@ public class Player : MonoBehaviour
         isAI = !isAI;
     }
 
-    internal List<Country> GetControlledCountries()
-    {
-        throw new NotImplementedException();
-    }
+    // internal List<Country> GetControlledCountries()
+    // {
+    //     throw new NotImplementedException();
+    // }
 }

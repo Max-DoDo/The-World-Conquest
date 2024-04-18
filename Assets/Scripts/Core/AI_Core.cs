@@ -1,159 +1,159 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+// using System;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class AI_Core : MonoBehaviour
-{
-    private Player[] players;
-    private Country[] countries;
+// public class AI_Core : MonoBehaviour
+// {
+//     private Player[] players;
+//     private Country[] countries;
 
-    void Start()
-    {
-        // ³õÊ¼»¯Íæ¼ÒºÍ¹ú¼ÒÁÐ±í
-        players = FindObjectsOfType<Player>();
-        countries = FindObjectsOfType<Country>();
-        SetTroop();
-    }
+//     void Start()
+//     {
+//         // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ÒºÍ¹ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+//         players = FindObjectsOfType<Player>();
+//         countries = FindObjectsOfType<Country>();
+//         SetTroop();
+//     }
 
-    private void SetTroop()
-    {
-        foreach (Player player in players)
-        {
-            if (player.IsAI())
-            {
-                AISetTroop(player);
-            }
-        }
-    }
+//     private void SetTroop()
+//     {
+//         foreach (Player player in players)
+//         {
+//             if (player.IsAI())
+//             {
+//                 AISetTroop(player);
+//             }
+//         }
+//     }
 
-    private void AISetTroop(Player aiPlayer)
-    {
-        // »ñÈ¡µ±Ç° AI Íæ¼Ò¿ØÖÆµÄ¹ú¼ÒÁÐ±í
-        List<Country> controlledCountries = aiPlayer.GetControlledCountries();
+//     private void AISetTroop(Player aiPlayer)
+//     {
+//         // ï¿½ï¿½È¡ï¿½ï¿½Ç° AI ï¿½ï¿½Ò¿ï¿½ï¿½ÆµÄ¹ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+//         List<Country> controlledCountries = aiPlayer.GetControlledCountries();
 
-        // ¼ÆËã AI Íæ¼ÒÐÂ»ØºÏµÃµ½µÄ¾ü¶ÓÊýÁ¿
-        int newTroops = CalculateNewTroops(aiPlayer);
+//         // ï¿½ï¿½ï¿½ï¿½ AI ï¿½ï¿½ï¿½ï¿½Â»ØºÏµÃµï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//         int newTroops = CalculateNewTroops(aiPlayer);
 
-        // ·ÖÅä¾ü¶ÓÊýÁ¿µ½¸÷¸ö¹ú¼Ò
-        foreach (Country country in controlledCountries)
-        {
-            country.army += newTroops;
+//         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//         foreach (Country country in controlledCountries)
+//         {
+//             country.army += newTroops;
 
-            // ÅÐ¶ÏÊÇ·ñ¹¥»÷ÁÚ½üµÄµÐ¶Ô¹ú¼Ò
-            if (ShouldAttack(country))
-            {
-                AttackNeighboringCountry(country);
-            }
-        }
-    }
+//             // ï¿½Ð¶ï¿½ï¿½Ç·ñ¹¥»ï¿½ï¿½Ú½ï¿½ï¿½ÄµÐ¶Ô¹ï¿½ï¿½ï¿½
+//             if (ShouldAttack(country))
+//             {
+//                 AttackNeighboringCountry(country);
+//             }
+//         }
+//     }
 
-    private int CalculateNewTroops(Player player)
-    {
-        // ÕâÀï¿ÉÒÔ¸ù¾ÝÓÎÏ·¹æÔòºÍÍæ¼Ò¿ØÖÆµÄ¹ú¼ÒÊýÁ¿À´¼ÆËãÐÂ»ØºÏµÃµ½µÄ¾ü¶ÓÊýÁ¿
-        // ÕâÀïÖ»ÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£¬¼ÙÉèÃ¿¸öÍæ¼Ò¿ØÖÆµÄ¹ú¼ÒÊýÁ¿³ýÒÔ2¾ÍÊÇÐÂ»ØºÏµÃµ½µÄ¾ü¶ÓÊýÁ¿
-        int troopsPerCountry = player.GetControlledCountries().Count / 2;
-        return troopsPerCountry;
-    }
+//     private int CalculateNewTroops(Player player)
+//     {
+//         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¿ï¿½ï¿½ÆµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â»ØºÏµÃµï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//         // ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½òµ¥µï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ò¿ï¿½ï¿½ÆµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Â»ØºÏµÃµï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//         int troopsPerCountry = player.GetControlledCountries().Count / 2;
+//         return troopsPerCountry;
+//     }
 
-    private bool ShouldAttack(Country country)
-    {
-        // ÅÐ¶ÏÊÇ·ñ¹¥»÷ÁÚ½üµÄµÐ¶Ô¹ú¼ÒµÄÂß¼­
-        // ÕâÀï¿ÉÒÔ¸ù¾Ý×Ô¼ºµÄÓÎÏ·¹æÔòÀ´ÊµÏÖ
-        // ÀýÈç£¬ÅÐ¶ÏÊÇ·ñÓÐÁÚ½üµÄµÐ¶Ô¹ú¼Ò£¬ÒÔ¼°³É¹¦ÂÊÊÇ·ñ³¬¹ý50%
-        // ÕâÀïÖ»ÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£¬¼ÙÉèÖ»ÓÐÔÚÁÚ½ü¹ú¼ÒÓÐµÐ¶Ô¹ú¼ÒÇÒ³É¹¦ÂÊ³¬¹ý50%Ê±²Å¹¥»÷
-        foreach (Country neighbor in GetNeighbors(country))
-        {
-            if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
+//     private bool ShouldAttack(Country country)
+//     {
+//         // ï¿½Ð¶ï¿½ï¿½Ç·ñ¹¥»ï¿½ï¿½Ú½ï¿½ï¿½ÄµÐ¶Ô¹ï¿½ï¿½Òµï¿½ï¿½ß¼ï¿½
+//         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+//         // ï¿½ï¿½ï¿½ç£¬ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ÄµÐ¶Ô¹ï¿½ï¿½Ò£ï¿½ï¿½Ô¼ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ç·ñ³¬¹ï¿½50%
+//         // ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½òµ¥µï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÐ¶Ô¹ï¿½ï¿½ï¿½ï¿½Ò³É¹ï¿½ï¿½Ê³ï¿½ï¿½ï¿½50%Ê±ï¿½Å¹ï¿½ï¿½ï¿½
+//         foreach (Country neighbor in GetNeighbors(country))
+//         {
+//             if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
+//             {
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
 
-    private float CalculateSuccessRate(Country attacker, Country defender)
-    {
-        /* 
-         * ³É¹¦ÂÊ¼ÆËã£¬Ä¿Ç°²»¿¼ÂÇ±»·´¹¥£¬½ö¿¼ÂÇ³É¹¦ÂÊ
-         */
+//     private float CalculateSuccessRate(Country attacker, Country defender)
+//     {
+//         /* 
+//          * ï¿½É¹ï¿½ï¿½Ê¼ï¿½ï¿½ã£¬Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç³É¹ï¿½ï¿½ï¿½
+//          */
        
-        {
-            //ÕâÀïselectCountry()Ã»¸ãÍê£¬ÊÇ´ú²Í
-            // ½ø¹¥·½÷»×ÓÊýÄ¿
-            int attackDiceCount = attacker.army > 3 ? 3 : attacker.army - 1;
-            // ·ÀÊØ·½÷»×ÓÊýÄ¿
-            int defenseDiceCount = defender.army > 2 ? 2 : defender.army;
-            //************************************************
-            // ³õÊ¼»¯³É¹¦¼ÆÊýºÍ´ó³É¹¦¼ÆÊý
-            float successCount = 0;
-            float bigSuccessCount = 0;
+//         {
+//             //ï¿½ï¿½ï¿½ï¿½selectCountry()Ã»ï¿½ï¿½ï¿½ê£¬ï¿½Ç´ï¿½ï¿½ï¿½
+//             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+//             int attackDiceCount = attacker.army > 3 ? 3 : attacker.army - 1;
+//             // ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+//             int defenseDiceCount = defender.army > 2 ? 2 : defender.army;
+//             //************************************************
+//             // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½
+//             float successCount = 0;
+//             float bigSuccessCount = 0;
 
-            // ±éÀúËùÓÐ¿ÉÄÜµÄ÷»×ÓµãÊý×éºÏ
-            for (int attackDice = 1; attackDice <= 6; attackDice++)
-            {
-                for (int defenseDice = 1; defenseDice <= 6; defenseDice++)
-                {
-                    // ¼ÆËã½ø¹¥·½ºÍ·ÀÊØ·½µÄ×î´óµãÊý
-                    int maxAttackDice = Math.Min(attackDiceCount, attackDice);
-                    int maxDefenseDice = Math.Min(defenseDiceCount, defenseDice);
+//             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//             for (int attackDice = 1; attackDice <= 6; attackDice++)
+//             {
+//                 for (int defenseDice = 1; defenseDice <= 6; defenseDice++)
+//                 {
+//                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//                     int maxAttackDice = Math.Min(attackDiceCount, attackDice);
+//                     int maxDefenseDice = Math.Min(defenseDiceCount, defenseDice);
 
-                    // Èç¹û½ø¹¥·½ÖÁÉÙÓÐÒ»¸ö÷»×ÓµÄµãÊý´óÓÚ·ÀÊØ·½µÄÖÁÉÙÒ»¸ö÷»×ÓµÄµãÊý£¬ÔòÔö¼Ó³É¹¦¼ÆÊý
-                    if (maxAttackDice > maxDefenseDice)
-                    {
-                        successCount += 1;
-                        // Èç¹û½ø¹¥·½µÄ×î´óµãÊý´óÓÚ·ÀÊØ·½µÄ×î´óµãÊý£¬²¢ÇÒÖÁÉÙÓÐÒ»¸ö÷»×ÓµÄµãÊý´óÓÚ·ÀÊØ·½µÄ×î´óµãÊý£¬ÔòÔö¼Ó´ó³É¹¦¼ÆÊý
-                        if (attackDice > defenseDice)
-                        {
-                            bigSuccessCount += 1;
-                        }
-                    }
-                }
-            }
+//                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½ï¿½ï¿½
+//                     if (maxAttackDice > maxDefenseDice)
+//                     {
+//                         successCount += 1;
+//                         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½
+//                         if (attackDice > defenseDice)
+//                         {
+//                             bigSuccessCount += 1;
+//                         }
+//                     }
+//                 }
+//             }
 
-            // ¼ÆËã³É¹¦ÂÊºÍ´ó³É¹¦ÂÊ
-            float successRate = successCount / 36;
-            float bigSuccessRate = bigSuccessCount / 36;
+//             // ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ÊºÍ´ï¿½É¹ï¿½ï¿½ï¿½
+//             float successRate = successCount / 36;
+//             float bigSuccessRate = bigSuccessCount / 36;
 
-            // ¼ÆËã×ÛºÏ³É¹¦ÂÊ
-            float compositeSuccessRate = 0.8f * successRate + 0.2f * bigSuccessRate;
+//             // ï¿½ï¿½ï¿½ï¿½ï¿½ÛºÏ³É¹ï¿½ï¿½ï¿½
+//             float compositeSuccessRate = 0.8f * successRate + 0.2f * bigSuccessRate;
 
-            return compositeSuccessRate;
-        }
+//             return compositeSuccessRate;
+//         }
 
-    }
+//     }
 
-    private void AttackNeighboringCountry(Country country)
-    {
-        // ¹¥»÷ÁÚ½üµÄµÐ¶Ô¹ú¼ÒµÄÂß¼­
-        // ÕâÀï¿ÉÒÔ¸ù¾ÝÓÎÏ·¹æÔòºÍ¹¥»÷³É¹¦ÂÊÀ´¾ö¶¨Õ½¶·½á¹û
-        // ÕâÀïÖ»ÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£¬¼ÙÉè¹¥»÷³É¹¦ÂÊ³¬¹ý50%Ê±£¬¹¥»÷³É¹¦
-        foreach (Country neighbor in GetNeighbors(country))
-        {
-            if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
-            {
-                // ¹¥»÷³É¹¦£¬¸üÐÂ¹ú¼ÒµÄ¿ØÖÆÕßºÍ¾ü¶ÓÊýÁ¿µÈÐÅÏ¢
-                neighbor.currentPlayer = country.currentPlayer;
-                neighbor.army = country.army - 1; // ¼ÙÉè¹¥»÷ºóÊ£ÓàÒ»¸ö¾ü¶Ó
-            }
-        }
-    }
+//     private void AttackNeighboringCountry(Country country)
+//     {
+//         // ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ÄµÐ¶Ô¹ï¿½ï¿½Òµï¿½ï¿½ß¼ï¿½
+//         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½ï¿½
+//         // ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½òµ¥µï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¹¥ï¿½ï¿½ï¿½É¹ï¿½ï¿½Ê³ï¿½ï¿½ï¿½50%Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+//         foreach (Country neighbor in GetNeighbors(country))
+//         {
+//             if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
+//             {
+//                 // ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ÒµÄ¿ï¿½ï¿½ï¿½ï¿½ßºÍ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+//                 neighbor.currentPlayer = country.currentPlayer;
+//                 neighbor.army = country.army - 1; // ï¿½ï¿½ï¿½è¹¥ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//             }
+//         }
+//     }
 
-    private List<Country> GetNeighbors(Country selectedCountry)
-    {
-        List<Country> neighbors = new List<Country>();
-        if (Country.mapData.ContainsKey(selectedCountry.name))
-        {
-            List<string> neighborNames = Country.mapData[selectedCountry.name];
-            foreach (string neighborName in neighborNames)
-            {
-                // ÔÚ countries Êý×éÖÐ²éÕÒÏàÁÚ¹ú¼Ò²¢Ìí¼Óµ½ÁÐ±íÖÐ
-                Country neighbor = Array.Find(countries, c => c.name == neighborName);
-                if (neighbor != null)
-                {
-                    neighbors.Add(neighbor);
-                }
-            }
-        }
-        return neighbors;
-    }
-}
+//     private List<Country> GetNeighbors(Country selectedCountry)
+//     {
+//         List<Country> neighbors = new List<Country>();
+//         if (Country.mapData.ContainsKey(selectedCountry.name))
+//         {
+//             List<string> neighborNames = Country.mapData[selectedCountry.name];
+//             foreach (string neighborName in neighborNames)
+//             {
+//                 // ï¿½ï¿½ countries ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½Ð±ï¿½ï¿½ï¿½
+//                 Country neighbor = Array.Find(countries, c => c.name == neighborName);
+//                 if (neighbor != null)
+//                 {
+//                     neighbors.Add(neighbor);
+//                 }
+//             }
+//         }
+//         return neighbors;
+//     }
+// }
