@@ -100,7 +100,7 @@ public class Game_Core : MonoBehaviour
         }
 
         currentPlayer = players[nextIndex];
-
+        GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayer(currentPlayer);
         currentPlayer.CanSelect = true;
         Debug.Log("CurrentPlayer: " + currentPlayer.number);
     }
