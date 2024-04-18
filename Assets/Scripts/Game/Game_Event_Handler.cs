@@ -35,6 +35,7 @@ public class Game_Event_Handler : MonoBehaviour
             foreach (Player player in players){
                 if(player.CanSelect){
                     player.selectCountry(hitObject.GetComponent<Country>());
+                    break;
                 }
             }
 

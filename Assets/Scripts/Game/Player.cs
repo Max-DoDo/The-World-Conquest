@@ -6,9 +6,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private static int playerNumberCount = 0;
+    private static int numberCount = 0;
 
-    public int playerNumber;
+    public int number;
 
     public int initTroops;
 
@@ -21,19 +21,19 @@ public class Player : MonoBehaviour
     public bool CanSelect;
 
     public Player(Client client){
-        playerNumberCount += 1;
+        numberCount += 1;
         isAI = false;
 
         init();
     }
 
     public Player(){
-        playerNumberCount += 1;
+        numberCount += 1;
         isAI = true;
     }
 
     private void init(){
-        this.playerNumber = playerNumberCount;
+        this.number = numberCount;
         initTroops = 20;
         troops = 0;
 
@@ -41,16 +41,17 @@ public class Player : MonoBehaviour
     }
 
     public void selectCountry(Country country){
-        Debug.Log("select" + country);
+        Debug.Log("select " + country);
+        GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopCallBack();
         
     }
 
     public int GetPlayerNumber(){
-        return playerNumber;
+        return number;
     }
 
     public void SetPlayerNumber(int PlayerNumber){
-        this.playerNumber = PlayerNumber;
+        this.number = PlayerNumber;
     }
 
     public bool IsAI(){
