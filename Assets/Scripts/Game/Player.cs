@@ -38,6 +38,10 @@ public class Player : MonoBehaviour
             initSelectCountry(country);
             return;
         }
+
+        if(gamemode == Constant.GAMEMODE_SETTROOP){
+            setTroops(country);
+        }
         
     }
 
@@ -52,6 +56,10 @@ public class Player : MonoBehaviour
             return;
         }
         GameObject.Find("Logic_Core").GetComponent<Game_Core>().initSetTroopCallBack();
+    }
+
+    private void setTroops(Country country){
+
     }
 
     public int GetNumber(){

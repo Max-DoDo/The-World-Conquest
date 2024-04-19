@@ -20,9 +20,7 @@ public class Game_Core : MonoBehaviour
 
     private Country[] countrys;
 
-    private List<Client> clients;
-
-    private Player ClientPlayer;
+    private List<Player> localPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -34,29 +32,22 @@ public class Game_Core : MonoBehaviour
         countrys = GameObject.FindObjectsOfType<Country>();
         gameMode = Constant.GAMEMODE_INITCOUNTRY;
 
+        initPlayers();
+        resetCurrentPlayer();
+    }
+
+    private void initPlayers(){
         int index = 0;
-        foreach (Player player in players)
-        {
-            if(player.mode == Constant.PLAYER_MODE_CLIENT){
-                ClientPlayer = player;
+        foreach (Player player in players){
+            if(player.mode == Constant.PLAYER_MODE_CLIENT && player.mode == Constant.PLAYER_MODE_HOTSET){
+                localPlayer.Add(player);
             }
             player.isEnable = true;
             player.CanSelect = false;
             player.SetNumber(index + 1);
             player.color = Constant.PLAYER_COLORS[index];
-            // Debug.Log("Player: " + player.GetPlayerNumber());
-            // Debug.Log("Player Color: " + player.color);
             index++;
         }
-
-
-        // Debug.Log(players.Length);
-        // Debug.Log(Constant.PLAYER_COLORS.Length);
-        
-
-        resetCurrentPlayer();
-
-        
     }
 
     private void run(){
@@ -112,7 +103,6 @@ public class Game_Core : MonoBehaviour
     {
         if (players.Length == 0)
         {
-            Debug.Log("Player length invalid");
             return;
         }
 
@@ -126,29 +116,40 @@ public class Game_Core : MonoBehaviour
             nextIndex = (nextIndex + 1) % players.Length;
         }
 
-        currentPlayer = players[nextIndex];
-        currentPlayer.CanSelect = true;
         updateUI();
+        currentPlayer = players[nextIndex];
+        updateUI();
+        currentPlayer.CanSelect = true;
         Debug.Log("CurrentPlayer: " + currentPlayer.number);
     }
 
     private void resetCurrentPlayer(){
         
         if(players.Length <= 0){
-            Debug.Log("player length invaild");
             return;
         }
 
         if(currentPlayer != null){
             currentPlayer.CanSelect = false;
         }
+
+        updateUI();
         currentPlayer = players[0];
+        updateUI();
         currentPlayer.CanSelect = true;
     }
 
     private void updateUI(){
+        
+        if(currentPlayer == null){
+            return;
+        }
+
+        if(currentPlayer.mode == Constant.PLAYER_MODE_CLIENT || currentPlayer.mode == Constant.PLAYER_MODE_HOTSET){
+            GameObject.Find("UI").GetComponent<UIManager>().setTroopsText(currentPlayer.troops);
+
+        }
         GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayerText(currentPlayer);
-        GameObject.Find("UI").GetComponent<UIManager>().setTroopsText(ClientPlayer.troops);
     }
 
 
