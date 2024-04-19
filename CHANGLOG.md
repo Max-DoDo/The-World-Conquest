@@ -2,15 +2,21 @@
 
 ---
 
+## [0.3.0] - 2024-04-19
+
+### Known bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+
 ## [0.2.0] - 2024-04-19
 
 ### Added
 
 * This game now will run by the event handle by user instead of a "Game Core".
-* Each player has its own represent color now.
-* Now each player can choose a series of countries to start.
-* Now each player start with 20 troops.
-* Added information panel.
+* Each player now has their own representative color.
+* Players can now choose a series of countries to start with.
+* Each player start with 20 troops.
+* An information panel has been added.
 * Added "Current player" text and "troop" text in information panel.
 * Added a setting button in the game scene. It do nothing right now.
 * The UI panel can run in almost different resolution.
@@ -21,8 +27,8 @@
 * A constant class for storage the static value.
 * A 3D project for dice.
 * A series of button UI.
-* User avatar UI
-* number from 0 to 9 UI.
+* User avatar UI elements have been added.
+* UI elements displaying numbers from 0 to 9 have been implemented.
 
 ### Changed
 
