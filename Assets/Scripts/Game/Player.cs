@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
 
     public Color color;
 
+    private Country selectCountry;
+
+    private bool isSelected;
+
     public Player(){
         numberCount += 1;
     }
@@ -42,10 +46,16 @@ public class Player : MonoBehaviour
         if(gamemode == Constant.GAMEMODE_SETTROOP){
             setTroops(country);
         }
+
+        if(gamemode == Constant.GAMEMODE_ATTACK){
+            attack(country);
+        }
         
     }
 
     private void initSelectCountry(Country country){
+        
+
         if(!country.isOwned() && troops >= 5){
             country.setOwner(this);
             country.addTroops(5);
@@ -59,9 +69,30 @@ public class Player : MonoBehaviour
     }
 
     private void setTroops(Country country){
-        
+        GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopCallBack(this,country);
+    }
 
+    private void attack(Country country){
 
+        GameObject.Find("UI").GetComponent<UIManager>().scrollBarSleep();
+        if(isSelected){
+            isSelected = false;
+            if(!CountryManager.checkCountryOwner(this,country) && CountryManager.isNearBy(country,selectCountry)){
+                Debug.Log("Attack: " + selectCountry + " " + country);
+                GameObject.Find("Logic_Core").GetComponent<Game_Core>().attackCallBack(selectCountry,country);
+            }else{
+                Debug.Log("Not a vild enemy country");
+            }
+        }else{
+            if(CountryManager.checkCountryOwner(this,country) && country.getTroops() > 1){
+                Debug.Log("Own Country selected");
+                isSelected = true;
+                selectCountry = country;
+            }else{
+                Debug.Log("Not own country or this country has no troops");
+                
+            }
+        }
     }
 
     public int GetNumber(){
@@ -80,4 +111,13 @@ public class Player : MonoBehaviour
     public override string ToString(){
         return "Player " + number + "";
     }
+
+    public void addTroops(int troops){
+        this.troops += troops;
+    }
+
+    public void zbbTroops(int troops){
+        this.troops -= troops;
+    }
+
 }

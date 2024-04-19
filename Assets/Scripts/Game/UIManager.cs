@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     void Start(){
         popUpText.SetActive(false);
+        TroopSelectScrollBar.SetActive(false);
         scrollBarMaxValue = 11;
     }
 
@@ -48,15 +49,55 @@ public class UIManager : MonoBehaviour
     }
 
     public void ConfirmButtonCallBack(){
-        if(TroopSelectScrollBar.gameObject.activeSelf){
-            GameObject.Find("Logic_Core").GetComponent<Game_Core>().setTroopScrollBarConfirmCallBack(Math.Round(scrollBarMaxValue * TroopSelectScrollBar.GetComponent<Scrollbar>().value,0));
-            TroopSelectScrollBar.SetActive(false);
+        if(!TroopSelectScrollBar.gameObject.activeSelf){
+            return;
         }
+
+        Game_Core gc = GameObject.Find("Logic_Core").GetComponent<Game_Core>();
+        int gamemode = gc.gameMode;
+        double scrollbarValue = Math.Round(scrollBarMaxValue * TroopSelectScrollBar.GetComponent<Scrollbar>().value,0);
+
+        if(gamemode == Constant.GAMEMODE_SETTROOP){
+            gc.setTroopScrollBarConfirmButtonCallBack(scrollbarValue);
+            scrollBarSleep();
+        }
+
+        if(gamemode == Constant.GAMEMODE_ATTACK){
+            gc.attackScrollBarConfirmButtonCallBack(scrollbarValue);
+        }
+
     }
 
     public void scrollBarAwake(int maxValue){
         TroopSelectScrollBar.SetActive(true);
         scrollBarMaxValue = maxValue;
+    }
+
+    public void scrollBarSleep(){
+        TroopSelectNumberText.GetComponent<TextMeshProUGUI>().SetText("0");
+        TroopSelectScrollBar.GetComponent<Scrollbar>().value = 0;
+        TroopSelectScrollBar.SetActive(false);
+    }
+
+    public void endRoundCallBack(){
+        Game_Core gc = GameObject.Find("Logic_Core").GetComponent<Game_Core>();
+        int currentGameMode = gc.gameMode;
+
+        if(currentGameMode == Constant.GAMEMODE_SETTROOP){
+            gc.roundSetTroopCallBack();
+            return;
+        }
+
+        if(currentGameMode == Constant.GAMEMODE_ATTACK){
+            gc.roundAttackCallBack();
+            return;
+        }
+
+        if(currentGameMode == Constant.GAMEMODE_MOVEMENT){
+            gc.roundMovementCallBack();
+            return;
+        }
+
     }
 
     private void setPopUpTextBack(){

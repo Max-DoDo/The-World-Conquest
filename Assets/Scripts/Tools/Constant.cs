@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Constant
@@ -12,7 +11,7 @@ public class Constant
     public const int GAMEMODE_INITCOUNTRY = 3;
     public const int GAMEMODE_ATTACK = 8;
     public const int GAMEMODE_MOVEMENT = 16;
-    public const int GAMEMODE_DEFENSE = 32;
+    // public const int GAMEMODE_DEFENSE = 32;
 
     public const int CONTINENT_ASIA = 1;
     public const int CONTINENT_AFRICA = 2;

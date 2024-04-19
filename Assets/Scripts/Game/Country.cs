@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -18,6 +19,10 @@ public class Country : MonoBehaviour
     private Player owner;
 
     private int troops;
+
+    public List<Country> neighbor;
+
+    public List<Country> unNeighbor;
 
     public int continent;
 
@@ -72,6 +77,10 @@ public class Country : MonoBehaviour
 
     public void addTroops(int troops){
         this.troops += troops;
+    }
+
+    public void zbbTroops(int troops){
+        this.troops -= troops;
     }
 
     public override string ToString()
