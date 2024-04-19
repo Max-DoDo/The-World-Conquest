@@ -82,6 +82,11 @@ public class Game_Core : MonoBehaviour
 
     }
 
+    public void setTroopScrollBarConfirmCallBack(double value){
+        Debug.Log(value);
+        
+    }
+
     public void switchCardCallBack(){
 
     }

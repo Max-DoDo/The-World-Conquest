@@ -4,6 +4,10 @@
 
 ## [0.3.0] - 2024-04-19
 
+### BugFix
+
+* fixed the scrollbar could not display well in different zoom scale.
+
 ### Known bug
 
 * The popup panel does not work properly when too much information needs to be displayed within a short period of time.

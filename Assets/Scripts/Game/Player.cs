@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
 
     private void setTroops(Country country){
         
+
+
     }
 
     public int GetNumber(){
