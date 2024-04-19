@@ -51,8 +51,8 @@ public class Country : MonoBehaviour
         this.owner = player;
         this.color = player.color;
         this.GetComponent<SpriteRenderer>().color = color;
-        this.troops = 1;
-        Debug.Log("set owner:" + player + "Color" + this.GetComponent<SpriteRenderer>().color);
+        // this.troops = 1;
+        // Debug.Log("set owner:" + player + "Color" + this.GetComponent<SpriteRenderer>().color);
     }
 
     public void setOwner(Player player,int army){
@@ -74,6 +74,9 @@ public class Country : MonoBehaviour
         this.troops += troops;
     }
 
-
+    public override string ToString()
+    {
+        return this.name + " | Owner:" + owner +" Troops: " +this.troops;
+    }
 
 }

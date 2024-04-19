@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             country.addTroops(5);
             troops -= 5;
         }else{
-            Debug.Log("This Country already has a owner");
+            // Debug.Log("This Country already has a owner");
             GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("This Country already has a owner");
             return;
         }
@@ -76,6 +76,6 @@ public class Player : MonoBehaviour
     // }
 
     public override string ToString(){
-        return "[Player " + number + "]";
+        return "Player " + number + "";
     }
 }

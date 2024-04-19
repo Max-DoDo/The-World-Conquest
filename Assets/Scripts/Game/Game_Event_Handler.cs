@@ -25,14 +25,16 @@ public class Game_Event_Handler : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             GameObject[] gameObjectsWithTag = GameObject.FindGameObjectsWithTag("Player");
             List<Player> players = new List<Player>();
-
+            Country selectedCountry = hitObject.GetComponent<Country>();
+            Debug.Log(selectedCountry);
             foreach (GameObject gameObject in gameObjectsWithTag){
                 players.Add(gameObject.GetComponent<Player>());
             }
 
             foreach (Player player in players){
                 if(player.CanSelect){
-                    player.MouseEventCallBack(hitObject.GetComponent<Country>());
+                    player.MouseEventCallBack(selectedCountry);
+                    
                     break;
                 }
             }

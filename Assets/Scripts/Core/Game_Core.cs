@@ -48,6 +48,8 @@ public class Game_Core : MonoBehaviour
             player.color = Constant.PLAYER_COLORS[index];
             index++;
         }
+
+        currentPlayer = players[0];
     }
 
     private void run(){
@@ -107,7 +109,6 @@ public class Game_Core : MonoBehaviour
         }
 
         currentPlayer.CanSelect = false;
-
         int currentIndex = Array.IndexOf(players, currentPlayer);
         int nextIndex = (currentIndex + 1) % players.Length;
 
@@ -120,7 +121,7 @@ public class Game_Core : MonoBehaviour
         currentPlayer = players[nextIndex];
         updateUI();
         currentPlayer.CanSelect = true;
-        Debug.Log("CurrentPlayer: " + currentPlayer.number);
+        // Debug.Log("CurrentPlayer: " + currentPlayer.number);
     }
 
     private void resetCurrentPlayer(){
@@ -140,7 +141,7 @@ public class Game_Core : MonoBehaviour
     }
 
     private void updateUI(){
-        
+
         if(currentPlayer == null){
             return;
         }
