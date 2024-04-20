@@ -50,6 +50,10 @@ public class Player : MonoBehaviour
         if(gamemode == Constant.GAMEMODE_ATTACK){
             attack(country);
         }
+
+        if(gamemode == Constant.GAMEMODE_MOVEMENT){
+            movement(country);
+        }
         
     }
 
@@ -81,7 +85,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Attack: " + selectCountry + " " + country);
                 GameObject.Find("Logic_Core").GetComponent<Game_Core>().attackCallBack(selectCountry,country);
             }else{
-                Debug.Log("Not a vild enemy country! Owner: " + !CountryManager.checkCountryOwner(this,country) + "NearBy: " + CountryManager.isNearBy(country,selectCountry));
+                GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Not a vild enemy country! Owner: " + !CountryManager.checkCountryOwner(this,country) + "NearBy: " + CountryManager.isNearBy(country,selectCountry));
             }
         }else{
             if(CountryManager.checkCountryOwner(this,country) && country.getTroops() > 1){
@@ -89,11 +93,33 @@ public class Player : MonoBehaviour
                 isSelected = true;
                 selectCountry = country;
             }else{
-                Debug.Log("Not own country or this country has no troops");
-                
+                GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Not own country or this country has no troops");
             }
         }
     }
+
+    private void movement(Country country){
+
+        GameObject.Find("UI").GetComponent<UIManager>().scrollBarSleep();
+        if(isSelected){
+            isSelected = false;
+            if(CountryManager.checkCountryOwner(this,country) && CountryManager.isPathway(this,country,selectCountry)){
+                Debug.Log("Movement: " + selectCountry + " " + country);
+                GameObject.Find("Logic_Core").GetComponent<Game_Core>().attackCallBack(selectCountry,country);
+            }else{
+                GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Not a vild enemy country! Owner: " + !CountryManager.checkCountryOwner(this,country) + "NearBy: " + CountryManager.isNearBy(country,selectCountry));
+            }
+        }else{
+            if(CountryManager.checkCountryOwner(this,country) && country.getTroops() > 1){
+                Debug.Log("Own Country selected");
+                isSelected = true;
+                selectCountry = country;
+            }else{
+                GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Not own country or this country has no troops");
+            }
+        }
+    }
+
 
     public int GetNumber(){
         return number;

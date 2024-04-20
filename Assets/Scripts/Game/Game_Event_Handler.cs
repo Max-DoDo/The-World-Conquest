@@ -45,7 +45,9 @@ public class Game_Event_Handler : MonoBehaviour
             GameObject[] gameObjectsWithTag = GameObject.FindGameObjectsWithTag("Player");
             List<Player> players = new List<Player>();
             Country selectedCountry = hitObject.GetComponent<Country>();
-            Debug.Log(selectedCountry);
+            GameObject.Find("UI").GetComponent<UIManager>().setCountryText(selectedCountry);
+            GameObject.Find("UI").GetComponent<UIManager>().setCountryArmyText(selectedCountry);
+            
             foreach (GameObject gameObject in gameObjectsWithTag){
                 players.Add(gameObject.GetComponent<Player>());
             }
@@ -53,7 +55,6 @@ public class Game_Event_Handler : MonoBehaviour
             foreach (Player player in players){
                 if(player.CanSelect){
                     player.MouseEventCallBack(selectedCountry);
-                    
                     break;
                 }
             }
@@ -69,7 +70,19 @@ public class Game_Event_Handler : MonoBehaviour
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 offset = mousePosition - mousePositionfix;
-        transform.position += (Vector3)offset;
+        Vector2 newPosition = transform.position + (Vector3)offset;
+        
+        float size = Camera.main.orthographicSize;
+        float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
+        float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
+        float ScreenResolutionRate = width / height;
+
+        minXY = new Vector2(size * ScreenResolutionRate + (width * 0.1f),size);
+        maxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.1f),height - size);
+        newPosition.x = Mathf.Clamp(newPosition.x, minXY.x, maxXY.x);
+        newPosition.y = Mathf.Clamp(newPosition.y, minXY.y, maxXY.y);
+        
+        transform.position = newPosition;
 
         mousePositionfix = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -83,11 +96,9 @@ public class Game_Event_Handler : MonoBehaviour
 
         if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0){
             return;
-            
         }
         
         float size = Camera.main.orthographicSize;
-
         float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
         float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
         float ScreenResolutionRate = width / height;

@@ -22,12 +22,49 @@ public class CountryManager{
     // }
 
     public static bool isNearBy(Country country1, Country country2){
-        List<string> value = mapData[country1.name];
+        List<string> value = Neighbors[country1.name];
         // Debug.Log(country1.name + " " +value.Contains(country2.name) + " " + country2.name);
         return value.Contains(country2.name);
     }
 
-        public static Dictionary<string, List<string>> mapData = new Dictionary<string, List<string>>(){
+    public static bool isPathway(Player player,Country country1, Country country2){
+
+        Debug.Log("Path Finder:" + country1.name + " to " + country2.name);
+        
+
+        Queue<string> queue = new Queue<string>();
+        HashSet<string> visited = new HashSet<string>();
+
+        queue.Enqueue(country1.name);
+        visited.Add(country1.name);
+
+        while (queue.Count > 0){
+            string currentCountry = queue.Dequeue();
+            List<string> neighbors = Neighbors[currentCountry];
+            HashSet<string> neighborCountrys = new HashSet<string>();
+
+            foreach(string neighborName in neighbors){
+                neighborCountrys.Add(neighborName);
+            }
+
+            foreach (string neighbor in neighborCountrys){
+
+                Debug.Log("Finging:" + neighbor);
+                if (!visited.Contains(neighbor) && checkCountryOwner(player, GameObject.Find(neighbor).GetComponent<Country>())){
+                    queue.Enqueue(neighbor);
+                    visited.Add(neighbor);
+
+                    if (neighbor == country2.name){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+        public static Dictionary<string, List<string>> Neighbors = new Dictionary<string, List<string>>(){
         //Asian
         { "Kamchatka", new List<string>{"Yakutsk", "Irkutsk", "Mongolia", "Japan", "Alaska"}},
         { "Yakutsk", new List<string>{"Kamchatka", "Irkutsk", "Siberia"}},
@@ -36,7 +73,7 @@ public class CountryManager{
         { "Ural", new List<string>{"Siberia", "Russia", "Afghanistan", "China"}},
         { "Mongolia", new List<string>{"Irkutsk", "Siberia", "Kamchatka", "China", "Japan"}},
         { "Japan", new List<string>{"Mongolia", "Kamchatka"}},
-        { "China", new List<string>{"Mongolia", "Afghanistan", "Southeast Asia", "India", "Siberia"}},
+        { "China", new List<string>{"Mongolia", "Afghanistan", "Southeast Asia", "India", "Siberia","Ural"}},
         { "Afghanistan", new List<string>{"Russia", "Ural", "China", "India", "Middle East"}},
         { "Middle East", new List<string>{"Russia", "Southern Europe", "Egypt", "Afghanistan", "India"}},
         { "India", new List<string>{"Southeast Asia", "Afghanistan", "Middle East", "China"}},
@@ -50,7 +87,7 @@ public class CountryManager{
 
         //Africa
         { "North Africa", new List<string>{"Egypt", "Western Europe", "East Africa", "Central Africa", "Brazil"}},
-        { "Egypt", new List<string>{"Middle East", "Southtern Europe", "North Africa", "East Africa"}},
+        { "Egypt", new List<string>{"Middle East", "Southern Europe", "North Africa", "East Africa"}},
         { "East Africa", new List<string>{"Egypt", "North Africa", "Central Africa", "South Africa", "Madagascar"}},
         { "Central Africa", new List<string>{"North Africa", "East Africa", "South Africa"}},
         { "South Africa", new List<string>{"Central Africa", "East Africa", "Madagascar"}},

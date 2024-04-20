@@ -13,13 +13,13 @@ public class Game_Core : MonoBehaviour
      * <p> inited in Unity
      *  
      */
-    public Player[] players;
+    public List<Player> players;
 
     public Player currentPlayer;
 
     public int gameMode;
 
-    private Country[] countrys;
+    private Country[] countries;
 
     private List<Player> localPlayer;
 
@@ -34,7 +34,7 @@ public class Game_Core : MonoBehaviour
     }
 
     private void init(){
-        countrys = GameObject.FindObjectsOfType<Country>();
+        countries = GameObject.FindObjectsOfType<Country>();
         gameMode = Constant.GAMEMODE_INITCOUNTRY;
 
         initPlayers();
@@ -85,7 +85,7 @@ public class Game_Core : MonoBehaviour
             }
         }
 
-        if(jumpoff.Count < players.Length){
+        if(jumpoff.Count < players.Count){
                 nextPlayer(jumpoff);
         }else{
             resetCurrentPlayer();
@@ -110,7 +110,7 @@ public class Game_Core : MonoBehaviour
     public void setTroopScrollBarConfirmButtonCallBack(double value){
         
         int intValue = Convert.ToInt32(value);
-        Debug.Log("scrollBar Value: " + intValue);
+        // Debug.Log("scrollBar Value: " + intValue);
         
         SelectCountry1.addTroops(intValue);
         currentPlayer.zbbTroops(intValue);
@@ -153,7 +153,7 @@ public class Game_Core : MonoBehaviour
             Array.Reverse(attackerDice);
             Array.Reverse(defDice);
 
-            Debug.Log("Att Dice: " + string.Join(", ", attackerDice) + " Def Dice: " + string.Join(", ", defDice));
+            // Debug.Log("Att Dice: " + string.Join(", ", attackerDice) + " Def Dice: " + string.Join(", ", defDice));
 
             int minCount = Math.Min(attackerDiceCount,defDiceCount);
 
@@ -169,24 +169,38 @@ public class Game_Core : MonoBehaviour
                 
             }
 
-            Debug.Log("Attacker: " + att + " defener: " + def);
+            // Debug.Log("Attacker: " + att + " defener: " + def);
 
         }
 
 
         if(att == 0){
             // attack failure
-            Debug.Log("Attack Failure! You troops remain: " + (SelectCountry1.getTroops() - att) + " enemy troops remain: " + def);
+            GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Attack Failure! You troops remain: " + (SelectCountry1.getTroops() - att) + " enemy troops remain: " + def);
             return;
         }
 
         if(def == 0){
-            Debug.Log("Attack success! You troops remain:" + att);
+            GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Attack success! You troops remain:" + att);
             SelectCountry2.setOwner(currentPlayer);
             SelectCountry2.addTroops(att);
         }
+        isDefeated();
+        updateUI();
 
+    }
 
+    public void movementCallBack(Country startCountry, Country endCountry){
+        GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(startCountry.getTroops() - 1);
+        SelectCountry1 = startCountry;
+        SelectCountry2 = endCountry;
+    }
+
+    public void movementScrollBarConfirmButtonCallBack(double value){
+        int troops = Convert.ToInt32(value);
+        SelectCountry1.zbbTroops(troops);
+        SelectCountry2.addTroops(troops);
+        updateUI();
     }
 
     public void roundSetTroopCallBack(){
@@ -241,21 +255,54 @@ public class Game_Core : MonoBehaviour
 
     private void obtainTroops(Player player){
 
-        int entitledTroops = 4;
+        int entitledTroops = 40;
         player.addTroops(entitledTroops);
         updateUI();
 
     }
+
     
+    private void isDefeated(){
+
+        List<Player> defeatedPlayer = new List<Player>();
+
+        foreach (Player player in players){
+            bool isOwnCountry = false;
+            foreach (Country country in countries){
+                if (country.getOwner() == player){
+                    isOwnCountry = true;
+                    break;
+                }
+            }
+
+            if(!isOwnCountry){
+                defeatedPlayer.Add(player);
+
+                Debug.Log(player + "defeated!");
+            }
+
+        }
+
+
+
+        foreach (Player player in defeatedPlayer)
+        {
+            players.Remove(player);
+        }
+
+        if(players.Count == 1){
+            Debug.Log(players[0] + "Win!");
+        }
+    }
 
     private void nextPlayer(ArrayList jumpOffPlayers = null)
     {
-        if (players.Length == 0){
+        if (players.Count == 0){
             return;
         }
 
         currentPlayer.CanSelect = false;
-        int currentIndex = Array.IndexOf(players, currentPlayer);
+        int currentIndex = players.IndexOf(currentPlayer);
         int nextIndex = GetNextPlayerIndex(currentIndex, jumpOffPlayers);
 
         updateUI();
@@ -266,10 +313,10 @@ public class Game_Core : MonoBehaviour
 
     private int GetNextPlayerIndex(int currentIndex, ArrayList jumpOffPlayers)
     {
-        int nextIndex = (currentIndex + 1) % players.Length;
+        int nextIndex = (currentIndex + 1) % players.Count;
 
         while (jumpOffPlayers != null && jumpOffPlayers.Contains(players[nextIndex])){
-            nextIndex = (nextIndex + 1) % players.Length;
+            nextIndex = (nextIndex + 1) % players.Count;
         }
 
         return nextIndex;
@@ -277,7 +324,7 @@ public class Game_Core : MonoBehaviour
 
     private void resetCurrentPlayer(){
         
-        if(players.Length <= 0){
+        if(players.Count <= 0){
             return;
         }
 
@@ -303,6 +350,11 @@ public class Game_Core : MonoBehaviour
             uiManager.setTroopsText(currentPlayer.troops);
         }
         uiManager.setCurrentPlayerText(currentPlayer);
+
+        if(SelectCountry2 != null){
+            uiManager.setCountryText(SelectCountry2);
+            uiManager.setCountryArmyText(SelectCountry2);
+        }
     }
 
 

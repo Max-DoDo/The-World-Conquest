@@ -10,7 +10,16 @@ public class UIManager : MonoBehaviour
 
     public GameObject TroopSelectScrollBar; 
 
-    public GameObject TroopSelectNumberText;
+    public GameObject troopsSelectNumberText;
+
+    public GameObject currentPlayerText;
+
+    public GameObject troopsText;
+
+
+    public GameObject countryText;
+
+    public GameObject countryArmyText;
 
     private int scrollBarMaxValue;
 
@@ -25,14 +34,27 @@ public class UIManager : MonoBehaviour
 
     public void setCurrentPlayerText(Player player){
         string str = "Current Player: " + player.ToString();
-        GameObject currentPlayerText = GameObject.Find("CurrentPlayerText");
         currentPlayerText.GetComponent<TextMeshProUGUI>().SetText(str);
     }
 
     public void setTroopsText(int troops){
         string str = "Troops: " + troops;
-        GameObject troopText = GameObject.Find("TroopsText");
-        troopText.GetComponent<TextMeshProUGUI>().SetText(str);
+        troopsText.GetComponent<TextMeshProUGUI>().SetText(str);
+    }
+
+    public void setCountryText(Country country){
+        string str = "Country: " + country.name;
+        countryText.GetComponent<TextMeshProUGUI>().SetText(str);
+    }
+
+    public void setCountryArmyText(Country country){
+        string str = "Army: " + country.getTroops();
+        countryArmyText.GetComponent<TextMeshProUGUI>().SetText(str);
+    }
+
+    public void setCountryArmyText(int troops){
+        string str = "Army: " + troops;
+        countryText.GetComponent<TextMeshProUGUI>().SetText(str);
     }
 
     public void setPopUpText(string str){
@@ -44,7 +66,7 @@ public class UIManager : MonoBehaviour
 
     public void scrollBarCallBack(){
         float value = TroopSelectScrollBar.GetComponent<Scrollbar>().value;
-        TroopSelectNumberText.GetComponent<TextMeshProUGUI>().SetText(Convert.ToString(Math.Round(scrollBarMaxValue * value,0)));
+        troopsSelectNumberText.GetComponent<TextMeshProUGUI>().SetText(Convert.ToString(Math.Round(scrollBarMaxValue * value,0)));
         
     }
 
@@ -64,6 +86,10 @@ public class UIManager : MonoBehaviour
         if(gamemode == Constant.GAMEMODE_ATTACK){
             gc.attackScrollBarConfirmButtonCallBack(scrollbarValue);
         }
+
+        if(gamemode == Constant.GAMEMODE_MOVEMENT){
+            gc.movementScrollBarConfirmButtonCallBack(scrollbarValue);
+        }
         scrollBarSleep();
 
     }
@@ -74,7 +100,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void scrollBarSleep(){
-        TroopSelectNumberText.GetComponent<TextMeshProUGUI>().SetText("0");
+        troopsSelectNumberText.GetComponent<TextMeshProUGUI>().SetText("0");
         TroopSelectScrollBar.GetComponent<Scrollbar>().value = 0;
         TroopSelectScrollBar.SetActive(false);
     }

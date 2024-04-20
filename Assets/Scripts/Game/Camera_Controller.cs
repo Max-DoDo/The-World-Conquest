@@ -35,7 +35,7 @@ public class Camera_Controller : MonoBehaviour
     ///     This value takes into account frame rate factors, current zoom rate factors, movement speed factors, and a constant.
     ///     Using this value to interpolate the map movement distance will result in more stable movement distance under different circumstances.
     /// </summary>
-    private float interpolate;
+    // private float interpolate;
 
     /// <summary>
     ///     The 2D vector contain the mininum value of camera position in X and Y.
@@ -100,7 +100,7 @@ public class Camera_Controller : MonoBehaviour
         moveSpeed = screenSize.x/3;
         init_ZoomSize = screenSize.x/10;
         mouseWheelSpeed = screenSize.x/100;
-        interpolate = 0.0f;
+        // interpolate = 0.0f;
         offset = 0.0f;
         maxZoomSize = screenSize.x/5;
         minZoomSize = screenSize.x/20;
