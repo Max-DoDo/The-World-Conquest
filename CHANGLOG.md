@@ -2,11 +2,32 @@
 
 ---
 
-## [0.3.0] - 2024-04-19
+## [0.3.0] - 2024-04-20
+
+### Added
+
+* Full support for attacking other countries added.
+* A comprehensive round loop system has been implemented.
+* 
+* Added troop selection via scrollbar.
+* The popup text panel can be used now.
+* Added dice functionality, attacks now depend on dice rolls to determine the outcome.
+
+### Changed
+
+* The Country class has been refactored.
+* Refactored numerous classes to improve logic coherence.
+* Refactored the method of acquiring troops for players.
+* Information about adjacent countries is now stored using a dictionary, eliminating the need for collision box detection.
+* Some UI files have been renamed to improve readability for English speakers.
+* Privious CHANGLOG.md file have been refactored to make it more readability.
 
 ### BugFix
 
-* fixed the scrollbar could not display well in different zoom scale.
+* Fixed the scrollbar could not display well in different zoom scale.
+* The key "Nothern Europe" in contry manager dictionary has renamed to "Northern Europe".
+* Fixed issue with abnormal troop loss after attacking other countries.
+* When the init troops. each country now will have 5 troops instead of 6.
 
 ### Known bug
 
