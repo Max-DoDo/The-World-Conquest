@@ -2,6 +2,33 @@
 
 ---
 
+## [0.4.0] - 2024-04-21
+
+### Added
+
+* Player's garrison turn fully implemented.
+* Player movement now based on breadth-first search(BFS) algorithm.
+* Added detection for defeat of a player faction.
+* Added detection for a player win the game.
+* Information bar shows the current selecting country name and troops number in this country.
+
+### Changed
+
+* Significant code refactoring.Including refactoring of camera controls and map control scripts.
+* Privious CHANGLOG.md file have been refactored to make it more readability.
+
+### BugFix
+
+* China now is the neighbor of Ural.
+* Southtern Europe now is called Southern Europe.
+* Map dragging and keyboard scrolling now perfectly adapted.
+
+### Known Bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+
+---
+
 ## [0.3.1] - 2024-04-21
 
 ### Added
