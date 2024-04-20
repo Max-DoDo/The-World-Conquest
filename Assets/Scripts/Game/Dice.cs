@@ -2,13 +2,14 @@ using System;
 using UnityEngine;
 public class Dice : MonoBehaviour{
 
-    System.Random random = new System.Random();
 
     public int roll(){
+        System.Random random = new System.Random();
         return random.Next(1, 7);
     }
 
     public int[] roll(int times){
+        System.Random random = new System.Random();
         int[] points = new int[times];
 
         for(int i = 0;i < points.Length;i++){
@@ -24,9 +25,6 @@ public class Dice : MonoBehaviour{
                 }
             }
         }
-
-        Debug.Log(points);
-
         return points;
     }
 }

@@ -39,15 +39,12 @@ public class Game_Core : MonoBehaviour
 
         initPlayers();
         resetCurrentPlayer();
-
         test();
     }
 
     private void test(){
         Debug.Log("=============TEST====================");
-        ;
-        CountryManager.isNearBy(GameObject.Find("China").GetComponent<Country>(),GameObject.Find("India").GetComponent<Country>());
-
+        // CountryManager.isNearBy(GameObject.Find("China").GetComponent<Country>(),GameObject.Find("India").GetComponent<Country>());
         Debug.Log("=============END TEST=================");
     }
 
@@ -67,16 +64,18 @@ public class Game_Core : MonoBehaviour
         currentPlayer = players[0];
     }
 
-    private void newRound(){
-        gameMode = Constant.GAMEMODE_SETTROOP;
-        foreach (Player player in players){
-            player.addTroops(4);
-        }
+    private void gameStart(){
 
+        nextRound();
+        // gameMode = Constant.GAMEMODE_SETTROOP;
+        // foreach (Player player in players){
+        //     player.addTroops(4);
+        // }
         updateUI();
     }
 
     public void initSetTroopCallBack(){
+
         //check if anybody already used all init troops
         ArrayList jumpoff = new ArrayList();
         foreach (Player player in players)
@@ -87,11 +86,11 @@ public class Game_Core : MonoBehaviour
         }
 
         if(jumpoff.Count < players.Length){
-                NextPlayer(jumpoff);
+                nextPlayer(jumpoff);
         }else{
             resetCurrentPlayer();
             //gamerun
-            newRound();
+            gameStart();
             Debug.Log("===== Game Run =====");
             
         }
@@ -132,121 +131,148 @@ public class Game_Core : MonoBehaviour
 
     public void attackScrollBarConfirmButtonCallBack(double value){
 
+        /**
+        *   init dice object
+        **/
         Dice d = GameObject.Find("Dices").GetComponent<Dice>();
-        int oriAttCount = Convert.ToInt32(value);
-        int att = oriAttCount;
+        int att = Convert.ToInt32(value);
+        SelectCountry1.zbbTroops(att);
         int def = SelectCountry2.getTroops();
 
-        int cA = 0;
-        int cD = 0;
+        while(att > 0 && def > 0){
 
-        while(true){
+            int attackerDiceCount = Math.Min(att,3);
+            int defDiceCount = Math.Min(def,2);
 
-            //try to get 3 vs 2
-            if(att >= 3){
-                cA = 3;
-                att -= 3;
-            }else{
-                cA = att;
-                att = 0;
-            }
+            int[] attackerDice = d.roll(attackerDiceCount);
+            int[] defDice = d.roll(defDiceCount);
 
-            if(def >= 2){
-                cD = 2;
-                def -= 2;
-            }else{
-                cD = def;
-                def = 0;
-            }
+            Array.Sort(attackerDice);
+            Array.Sort(defDice);
 
-            // roll dices
-            int[] aPoint = d.roll(cA);
-            int[] dPoint = d.roll(cD);
-            int len = 0;
+            Array.Reverse(attackerDice);
+            Array.Reverse(defDice);
 
+            Debug.Log("Att Dice: " + string.Join(", ", attackerDice) + " Def Dice: " + string.Join(", ", defDice));
 
-            if(aPoint.Length > dPoint.Length){
-                len = dPoint.Length;
-            }else{
-                len = aPoint.Length;
-            }
+            int minCount = Math.Min(attackerDiceCount,defDiceCount);
 
-            while(len != 0){
-                int index = len - 1;
-                if(aPoint[index] > dPoint[index]){
-                    cD -= 1;
-                    SelectCountry2.zbbTroops(1);
+            for(int i = 0; i < minCount; i++){
+                if(defDice[i] >= attackerDice[i]){
+
+                    att--;
+
                 }else{
-                    cA -= 1;
-                    SelectCountry1.zbbTroops(1);
+                    def--;
+                    SelectCountry2.zbbTroops(1);
                 }
-                len--;
-            }
-
-            att += cA;
-            def += cD;
-
-            if(att == 0){
-                break;
-            }
-
-            if(def == 0){
-                SelectCountry2.setOwner(currentPlayer);
                 
             }
+
+            Debug.Log("Attacker: " + att + " defener: " + def);
+
         }
 
-    }
 
-    public void defenseCallBack(){
+        if(att == 0){
+            // attack failure
+            Debug.Log("Attack Failure! You troops remain: " + (SelectCountry1.getTroops() - att) + " enemy troops remain: " + def);
+            return;
+        }
 
-    }
+        if(def == 0){
+            Debug.Log("Attack success! You troops remain:" + att);
+            SelectCountry2.setOwner(currentPlayer);
+            SelectCountry2.addTroops(att);
+        }
 
-    public void endPhaseCallBack(){
 
     }
 
     public void roundSetTroopCallBack(){
-        gameMode = Constant.GAMEMODE_ATTACK;
+        nextRound();
         Debug.Log("ATTACK ROUND");
         
     }
 
     public void roundAttackCallBack(){
-        gameMode = Constant.GAMEMODE_MOVEMENT;
+        nextRound();
         Debug.Log("MOVEMENT ROUND");
-
     }
 
+
     public void roundMovementCallBack(){
-        gameMode = Constant.GAMEMODE_SETTROOP;
+        nextRound();
         Debug.Log("SETTROOPS ROUND");
     }
 
+    private void nextRound(){
+        switch(gameMode){
+            case Constant.GAMEMODE_SETTROOP:
 
+                gameMode = Constant.GAMEMODE_ATTACK;
+                break;
+
+            case Constant.GAMEMODE_ATTACK:
+
+                gameMode = Constant.GAMEMODE_MOVEMENT;
+                break;
+
+            case Constant.GAMEMODE_MOVEMENT:
+
+                gameMode = Constant.GAMEMODE_SETTROOP;
+                nextPlayer();
+                obtainTroops(currentPlayer);
+                break;
+            
+            case Constant.GAMEMODE_INITCOUNTRY:
+
+                gameMode = Constant.GAMEMODE_SETTROOP;
+                if(currentPlayer != null){
+                    obtainTroops(currentPlayer);
+                }
+                break;
+            
+            default:
+                Debug.LogError("Unknown game mode");
+                break;
+        }
+    }
+
+    private void obtainTroops(Player player){
+
+        int entitledTroops = 4;
+        player.addTroops(entitledTroops);
+        updateUI();
+
+    }
     
 
-    private void NextPlayer(ArrayList jumpOffPlayers = null)
+    private void nextPlayer(ArrayList jumpOffPlayers = null)
     {
-        if (players.Length == 0)
-        {
+        if (players.Length == 0){
             return;
         }
 
         currentPlayer.CanSelect = false;
         int currentIndex = Array.IndexOf(players, currentPlayer);
-        int nextIndex = (currentIndex + 1) % players.Length;
-
-        while (jumpOffPlayers != null && jumpOffPlayers.Contains(players[nextIndex]))
-        {
-            nextIndex = (nextIndex + 1) % players.Length;
-        }
+        int nextIndex = GetNextPlayerIndex(currentIndex, jumpOffPlayers);
 
         updateUI();
         currentPlayer = players[nextIndex];
         updateUI();
         currentPlayer.CanSelect = true;
-        // Debug.Log("CurrentPlayer: " + currentPlayer.number);
+    }
+
+    private int GetNextPlayerIndex(int currentIndex, ArrayList jumpOffPlayers)
+    {
+        int nextIndex = (currentIndex + 1) % players.Length;
+
+        while (jumpOffPlayers != null && jumpOffPlayers.Contains(players[nextIndex])){
+            nextIndex = (nextIndex + 1) % players.Length;
+        }
+
+        return nextIndex;
     }
 
     private void resetCurrentPlayer(){
@@ -271,11 +297,12 @@ public class Game_Core : MonoBehaviour
             return;
         }
 
-        if(currentPlayer.mode == Constant.PLAYER_MODE_CLIENT || currentPlayer.mode == Constant.PLAYER_MODE_HOTSET){
-            GameObject.Find("UI").GetComponent<UIManager>().setTroopsText(currentPlayer.troops);
+        UIManager uiManager = GameObject.Find("UI").GetComponent<UIManager>();
 
+        if(currentPlayer.mode == Constant.PLAYER_MODE_CLIENT || currentPlayer.mode == Constant.PLAYER_MODE_HOTSET){
+            uiManager.setTroopsText(currentPlayer.troops);
         }
-        GameObject.Find("UI").GetComponent<UIManager>().setCurrentPlayerText(currentPlayer);
+        uiManager.setCurrentPlayerText(currentPlayer);
     }
 
 

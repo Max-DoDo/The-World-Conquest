@@ -57,13 +57,13 @@ public class CountryManager{
         { "Madagascar", new List<string>{"South Africa", "East Africa"}},
 
         //Europe
-        { "Russia", new List<string>{"Ural", "Afghanistan", "Middle East", "Scandinavia", "Nothern Europe", "Southern Europe"}},
-        { "Scandinavia", new List<string>{"Russia", "Iceland", "Great Britain", "Nothern Europe"}},
+        { "Russia", new List<string>{"Ural", "Afghanistan", "Middle East", "Scandinavia", "Northern Europe", "Southern Europe"}},
+        { "Scandinavia", new List<string>{"Russia", "Iceland", "Great Britain", "Northern Europe"}},
         { "Iceland", new List<string>{"Greenland", "Scandinavia", "Great Britain"}},
-        { "Great Britain", new List<string>{"Iceland", "Scandinavia", "Nothern Europe", "Western Europe"}},
-        { "Nothern Europe", new List<string>{"Scandinavia", "Great Britain", "Southern Europe", "Western Europe", "Russia"}},
-        { "Southern Europe", new List<string>{"Russia", "Nothern Europe", "Western Europe", "Middle East", "Egypt", "North Africa"}},
-        { "Western Europe", new List<string>{"Nothern Europe", "Southern Europe", "Great Britain", "North Africa"}},
+        { "Great Britain", new List<string>{"Iceland", "Scandinavia", "Northern Europe", "Western Europe"}},
+        { "Northern Europe", new List<string>{"Scandinavia", "Great Britain", "Southern Europe", "Western Europe", "Russia"}},
+        { "Southern Europe", new List<string>{"Russia", "Northern Europe", "Western Europe", "Middle East", "Egypt", "North Africa"}},
+        { "Western Europe", new List<string>{"Northern Europe", "Southern Europe", "Great Britain", "North Africa"}},
 
         //NorthAmerica
         { "Greenland", new List<string>{"Northwest Territory", "Ontario", "Eastern Canada", "Iceland"}},

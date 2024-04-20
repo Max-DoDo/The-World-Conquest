@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
                 Debug.Log("Attack: " + selectCountry + " " + country);
                 GameObject.Find("Logic_Core").GetComponent<Game_Core>().attackCallBack(selectCountry,country);
             }else{
-                Debug.Log("Not a vild enemy country");
+                Debug.Log("Not a vild enemy country! Owner: " + !CountryManager.checkCountryOwner(this,country) + "NearBy: " + CountryManager.isNearBy(country,selectCountry));
             }
         }else{
             if(CountryManager.checkCountryOwner(this,country) && country.getTroops() > 1){
