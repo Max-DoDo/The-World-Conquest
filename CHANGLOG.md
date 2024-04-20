@@ -2,13 +2,35 @@
 
 ---
 
+## [0.3.1] - 2024-04-21
+
+### Added
+
+* Game map can be drag by mouse now.
+
+### Changed
+
+* Refactored numerous camera controller classes to improve logic coherence.
+
+### BugFix
+
+* Fixed an issue where "New Guinea" country could not be attacked due to incorrect key in dictionary.
+* Fixed a bug where improper scrollbar retraction allowed the use of "shadow troops" to attack other countries.
+
+
+### Known Bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+* Drag map could cause the camera to move beyond the map's boundaries
+
+---
+
 ## [0.3.0] - 2024-04-20
 
 ### Added
 
 * Full support for attacking other countries added.
 * A comprehensive round loop system has been implemented.
-* 
 * Added troop selection via scrollbar.
 * The popup text panel can be used now.
 * Added dice functionality, attacks now depend on dice rolls to determine the outcome.
@@ -29,7 +51,7 @@
 * Fixed issue with abnormal troop loss after attacking other countries.
 * When the init troops. each country now will have 5 troops instead of 6.
 
-### Known bug
+### Known Bug
 
 * The popup panel does not work properly when too much information needs to be displayed within a short period of time.
 
