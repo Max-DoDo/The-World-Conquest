@@ -35,7 +35,7 @@ public class Camera_Controller : MonoBehaviour
     ///     This value takes into account frame rate factors, current zoom rate factors, movement speed factors, and a constant.
     ///     Using this value to interpolate the map movement distance will result in more stable movement distance under different circumstances.
     /// </summary>
-    private float adjustment_value;
+    private float interpolate;
 
     /// <summary>
     ///     The 2D vector contain the mininum value of camera position in X and Y.
@@ -82,6 +82,7 @@ public class Camera_Controller : MonoBehaviour
     /// </summary>
     private float minZoomSize;
 
+
     public Canvas canvas;
 
     /// <summary>
@@ -99,7 +100,7 @@ public class Camera_Controller : MonoBehaviour
         moveSpeed = screenSize.x/3;
         init_ZoomSize = screenSize.x/10;
         mouseWheelSpeed = screenSize.x/100;
-        adjustment_value = 0.0f;
+        interpolate = 0.0f;
         offset = 0.0f;
         maxZoomSize = screenSize.x/5;
         minZoomSize = screenSize.x/20;
@@ -119,56 +120,46 @@ public class Camera_Controller : MonoBehaviour
     private void Update()
     {
         ZoomCamera();
-        MoveCamera();
+        // MoveCamera();
         // Debug.Log(Camera.main.transform.position);
         
     }
 
     private void MoveCamera()
     {
-        if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0){
-            return;
-        }
+        // if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0){
+        //     return;
+        // }
 
-        // Get Movement speed and direction
-        adjustment_value = Camera.main.orthographicSize / init_ZoomSize * Time.deltaTime * moveSpeed;
-        float horizontalInput = Input.GetAxis("Horizontal") * adjustment_value;
-        float verticalInput = Input.GetAxis("Vertical") * adjustment_value;
+        // interpolate = Camera.main.orthographicSize / init_ZoomSize * Time.deltaTime * moveSpeed;
+        // float horizontalInput = Input.GetAxis("Horizontal") * interpolate;
+        // float verticalInput = Input.GetAxis("Vertical") * interpolate;
 
-        Vector2 moveAmount = new(horizontalInput, verticalInput);
-        Vector2 newPosition = new Vector2(transform.position.x, transform.position.y) + moveAmount;
+        // Vector2 moveAmount = new(horizontalInput, verticalInput);
+        // Vector2 newPosition = new Vector2(transform.position.x, transform.position.y) + moveAmount;
 
-        // Get a value between 0 and 1 for the zoom rate.
-        // float LerpValue = Mathf.InverseLerp(minZoomSize, maxZoomSize, Camera.main.orthographicSize);
-        // LerpValue = (float)Math.Round(LerpValue * 100f) / 100;
-        // LerpValue = Mathf.Clamp01(LerpValue);
+        // float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
+        // float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
+        // float ScreenResolutionRate = width/height;
+        // float size = Camera.main.orthographicSize;
 
-        float width = canvas.GetComponent<RectTransform>().sizeDelta.x;
-        float height = canvas.GetComponent<RectTransform>().sizeDelta.y;
-        float ScreenResolutionRate = width/height;
-        float size = Camera.main.orthographicSize;
+        // MinXY = new Vector2(size * ScreenResolutionRate + (width * 0.1f),size);
+        // MaxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.1f),height - size);
 
-        MinXY = new Vector2(size * ScreenResolutionRate + (width * 0.1f),size);
-        MaxXY = new Vector2(width - size * ScreenResolutionRate - (width * 0.1f),height - size);
+        // if(MinXY.x > MaxXY.x){
+        //     MaxXY.x = MinXY.x = (MaxXY.x+MinXY.x)/2; 
+        // }
 
-        // Vector2 newMinXY = MinXY * LerpValue;
-        // Vector2 newMaxXY = MaxXY * LerpValue;
-        if(MinXY.x > MaxXY.x){
-            MaxXY.x = MinXY.x = (MaxXY.x+MinXY.x)/2; 
-        }
-
-        newPosition.x = Mathf.Clamp(newPosition.x, MinXY.x, MaxXY.x);
-        newPosition.y = Mathf.Clamp(newPosition.y, MinXY.y, MaxXY.y);
-        // Debug.Log(MinXY);
-        // Debug.Log(MaxXY);
+        // newPosition.x = Mathf.Clamp(newPosition.x, MinXY.x, MaxXY.x);
+        // newPosition.y = Mathf.Clamp(newPosition.y, MinXY.y, MaxXY.y);
         
-        transform.position = newPosition;
+        // transform.position = newPosition;
 
     }
 
     private void ZoomCamera()
     {
-        float c = mouseWheelSpeed;
+        // float c = mouseWheelSpeed;
         // float temp = ;
         // Debug.Log(temp);
         
@@ -191,7 +182,9 @@ public class Camera_Controller : MonoBehaviour
         {
             offset = -mouseWheelSpeed * 3;
         }
-        float halfsecond =  1 / Time.deltaTime / 20;
+
+        //随着帧数的增大减少
+        float halfsecond =  1 / Time.deltaTime / 30;
         float movementValue = mouseWheelSpeed / halfsecond;
 
         if (Camera.main.orthographicSize + movementValue < maxZoomSize && offset > movementValue)

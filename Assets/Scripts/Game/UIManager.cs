@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void ConfirmButtonCallBack(){
+    public void ScrollBarConfirmButtonCallBack(){
         if(!TroopSelectScrollBar.gameObject.activeSelf){
             return;
         }
@@ -59,12 +59,12 @@ public class UIManager : MonoBehaviour
 
         if(gamemode == Constant.GAMEMODE_SETTROOP){
             gc.setTroopScrollBarConfirmButtonCallBack(scrollbarValue);
-            scrollBarSleep();
         }
 
         if(gamemode == Constant.GAMEMODE_ATTACK){
             gc.attackScrollBarConfirmButtonCallBack(scrollbarValue);
         }
+        scrollBarSleep();
 
     }
 

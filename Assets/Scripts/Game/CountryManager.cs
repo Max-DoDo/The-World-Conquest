@@ -44,9 +44,9 @@ public class CountryManager{
 
         //Australia
         { "Indonesia", new List<string>{"Southeast Asia", "Western Australia"}},
-        { "NewGuinea", new List<string>{"Indonesia", "Eastern Australia"}},
+        { "New Guinea", new List<string>{"Indonesia", "Eastern Australia"}},
         { "Western Australia", new List<string>{"Indonesia", "Eastern Australia"}},
-        { "Eastern Australia", new List<string>{"NewGuinea", "Western Australia"}},
+        { "Eastern Australia", new List<string>{"New Guinea", "Western Australia"}},
 
         //Africa
         { "North Africa", new List<string>{"Egypt", "Western Europe", "East Africa", "Central Africa", "Brazil"}},
