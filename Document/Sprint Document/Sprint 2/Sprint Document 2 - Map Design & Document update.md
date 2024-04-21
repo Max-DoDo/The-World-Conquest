@@ -3,9 +3,9 @@
 ## Summary Data
 
 * Team Number: 27
-* Sprint TEchnical Lead(s): 
-* Sprint Start Date: 2024-03-5
-* Sprint End Date:2024-03-10
+* Sprint Technical Lead(s): 
+* Sprint Start Date: 2024-02-26
+* Sprint End Date:2024-03-3
 
 ## Individual Key Contributions:
 

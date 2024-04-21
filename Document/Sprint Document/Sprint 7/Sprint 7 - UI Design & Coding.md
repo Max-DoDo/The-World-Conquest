@@ -1,4 +1,4 @@
-# Sprint 9 - UI Design & Coding
+# Sprint 7 - UI Design & Coding
 
 ## Summary Data
 
@@ -28,7 +28,7 @@ As a client, I want to be able to choose how my avatar looks, including colors, 
 ## Requirement analysis / Task Cards
 ***Analyze user stories, split them into different needs, and then decompose them into task cards***
 * **Feature: Avatar Customization**
-    
+  
     - **Description:** Allow players to choose their avatars, including changing colors, to personalize their gaming experience.
     - Requirements:
       - Provide avatar selection in the team interface, and provide color selection.

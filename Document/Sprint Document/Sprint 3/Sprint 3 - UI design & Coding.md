@@ -4,8 +4,8 @@
 
 * Team Number: 27
 * Sprint TEchnical Lead(s):  Yaowen Zhang
-* Sprint Start Date: 2024-03-11
-* Sprint End Date:2024-03-17
+* Sprint Start Date: 2024-03-4
+* Sprint End Date:2024-03-10
 
 ## Individual Key Contributions:
 

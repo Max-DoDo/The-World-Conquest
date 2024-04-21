@@ -4,8 +4,8 @@
 
 * Team Number: 27
 * Sprint TEchnical Lead(s): 
-* Sprint Start Date: 2024-03-18
-* Sprint End Date: 2024-03-24
+* Sprint Start Date: 2024-03-11
+* Sprint End Date: 2024-03-17
 
 ## Individual Key Contributions:
 
@@ -28,7 +28,7 @@ As a client, I want the game to have more design elements in the play interface,
 ## Requirement analysis / Task Cards
 ***Analyze user stories, split them into different needs, and then decompose them into task cards***
 * ### Requirement Analysis
-    
+  
     **Feature: Enhanced Design Elements in the Play Interface**
     
     - **Description:** Improve the visual appeal and user interaction of the game interface by incorporating more sophisticated design elements.

@@ -4,8 +4,8 @@
 
 * Team Number: 27
 * Sprint Technical Lead(s): Max Wang
-* Sprint Start Date: 2024-02-22
-* Sprint End Date: 2024-02-28
+* Sprint Start Date: 2024-02-19
+* Sprint End Date: 2024-02-25
 
 ## Individual Key Contributions:
 
