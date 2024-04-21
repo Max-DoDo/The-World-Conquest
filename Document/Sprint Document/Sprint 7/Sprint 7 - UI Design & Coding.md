@@ -43,7 +43,7 @@ As a client, I want to be able to choose how my avatar looks, including colors, 
     
     **Feature: Adding AI Players**
     
-    - **Description:** Players should be able to add computer-controlled players (AI) to their game, choosing from various difficulty levels.
+    - **Description:** Players should be able to add or delete computer-controlled players (AI) to their game, choosing from various difficulty levels.
     
     - Requirements:
     
