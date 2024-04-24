@@ -198,6 +198,31 @@ public class Camera_Controller : MonoBehaviour
         }else{
             offset = 0;
         }
-
+        // Debug.Log("Camera Zoom Value: " + Camera.main.orthographicSize);
+        // TestZoomBounds();
+        // TestExceptionCase();
     }
+    // unit test
+    // private void TestZoomBounds()
+    // {
+    //     if (Camera.main.orthographicSize >= maxZoomSize)
+    //     {
+    //         Debug.Log("Camera has reached the maximum zoom size.");
+    //     }
+    //     else if (Camera.main.orthographicSize <= minZoomSize)
+    //     {
+    //         Debug.Log("Camera has reached the minimum zoom size.");
+    //     }
+    // }
+    
+    //  // A completely meaningless test, testing the special situation when offset is 0.
+    // private void TestExceptionCase()
+    // {
+    //     if (Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")) > 0 && offset == 0)
+    //     {
+    //         Debug.LogError("Exceptional case: Mouse ScrollWheel triggered, but the offset is 0.");
+    //     }
+    // }
 }
+
+

@@ -147,3 +147,46 @@ public class Player : MonoBehaviour
     }
 
 }
+
+
+//TEST
+public class PlayerTest : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        TestPlayer();
+    }
+
+    void TestPlayer()
+    {
+        Player player1 = new Player();
+        Player player2 = new Player();
+
+        // Testing the initialization of players
+        Debug.Log("Player 1 Number: " + player1.GetNumber()); // Player 1 Number: 1
+        Debug.Log("Player 2 Number: " + player2.GetNumber()); // Player 2 Number: 2
+
+        // Testing the initialization of troops
+        Debug.Log("Player 1 Troops: " + player1.troops); // Player 1 Troops: 20
+        Debug.Log("Player 2 Troops: " + player2.troops); // Player 2 Troops: 20
+
+        // Testing the MouseEventCallBack method
+        Country country = new GameObject().AddComponent<Country>();
+        Debug.Log("Testing MouseEventCallBack:");
+        Debug.Log("Player 1: ");
+        player1.MouseEventCallBack(country);
+        Debug.Log("Player 2: ");
+        player2.MouseEventCallBack(country);
+
+        // Testing the addTroops method
+        Debug.Log("Testing addTroops:");
+        player1.addTroops(10);
+        Debug.Log("Player 1 Troops after adding: " + player1.troops); // Player 1 Troops after adding: 30
+
+        // Testing the zbbTroops method
+        Debug.Log("Testing zbbTroops:");
+        player2.zbbTroops(5);
+        Debug.Log("Player 2 Troops after subtracting: " + player2.troops); // Player 2 Troops after subtracting: 15
+    }
+}
