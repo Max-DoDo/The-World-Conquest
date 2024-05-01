@@ -126,6 +126,10 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void cardButtonCallBack(){
+        
+    }
+
     private void setPopUpTextBack(){
         popUpText.SetActive(false);
 
