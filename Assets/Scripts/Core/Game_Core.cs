@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,23 +7,39 @@ using UnityEngine.TextCore.Text;
 
 public class Game_Core : MonoBehaviour
 {
-
-    /**
-     * <p> inited in Unity
-     *  
-     */
+    /// <summary>
+    /// List of players participating in the game.
+    /// </summary>
     public List<Player> players;
 
+    /// <summary>
+    /// The current player whose turn it is.
+    /// </summary>
     public Player currentPlayer;
 
+    /// <summary>
+    /// The current game mode.
+    /// </summary>
     public int gameMode;
 
+    /// <summary>
+    /// Array containing all the countries in the game.
+    /// </summary>
     private Country[] countries;
 
+    /// <summary>
+    /// List of local players.
+    /// </summary>
     private List<Player> localPlayer;
 
+    /// <summary>
+    /// The first selected country.
+    /// </summary>
     private Country SelectCountry1;
 
+    /// <summary>
+    /// The second selected country.
+    /// </summary>
     private Country SelectCountry2;
 
     // Start is called before the first frame update
@@ -33,6 +48,9 @@ public class Game_Core : MonoBehaviour
         init();
     }
 
+    /// <summary>
+    /// Initializes the game.
+    /// </summary>
     private void init(){
         countries = GameObject.FindObjectsOfType<Country>();
         gameMode = Constant.GAMEMODE_INITCOUNTRY;
@@ -42,12 +60,18 @@ public class Game_Core : MonoBehaviour
         test();
     }
 
+    /// <summary>
+    /// Runs a test.
+    /// </summary>
     private void test(){
         Debug.Log("=============TEST====================");
         // CountryManager.isNearBy(GameObject.Find("China").GetComponent<Country>(),GameObject.Find("India").GetComponent<Country>());
         Debug.Log("=============END TEST=================");
     }
 
+    /// <summary>
+    /// Initializes the players.
+    /// </summary>
     private void initPlayers(){
         int index = 0;
         foreach (Player player in players){
@@ -64,6 +88,9 @@ public class Game_Core : MonoBehaviour
         currentPlayer = players[0];
     }
 
+    /// <summary>
+    /// Starts the game.
+    /// </summary>
     private void gameStart(){
 
         nextRound();
@@ -74,6 +101,9 @@ public class Game_Core : MonoBehaviour
         updateUI();
     }
 
+    /// <summary>
+    /// Callback function for initializing troop placement.
+    /// </summary>
     public void initSetTroopCallBack(){
 
         //check if anybody already used all init troops
@@ -97,6 +127,11 @@ public class Game_Core : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Callback function for setting troops.
+    /// </summary>
+    /// <param name="player">The player setting the troops.</param>
+    /// <param name="country">The country where troops are being placed.</param>
     public void setTroopCallBack(Player player, Country country){
 
         if(CountryManager.checkCountryOwner(player, country)){
@@ -107,6 +142,10 @@ public class Game_Core : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Callback function for confirming troop selection.
+    /// </summary>
+    /// <param name="value">The number of troops selected.</param>
     public void setTroopScrollBarConfirmButtonCallBack(double value){
         
         int intValue = Convert.ToInt32(value);
@@ -118,10 +157,18 @@ public class Game_Core : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Callback function for switching cards.
+    /// </summary>
     public void switchCardCallBack(){
 
     }
 
+    /// <summary>
+    /// Callback function for initiating an attack.
+    /// </summary>
+    /// <param name="ownCountry">The attacking country.</param>
+    /// <param name="enemyCountry">The defending country.</param>
     public void attackCallBack(Country ownCountry, Country enemyCountry){
         GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(ownCountry.getTroops() - 1);
         SelectCountry1 = ownCountry;
@@ -129,6 +176,10 @@ public class Game_Core : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Callback function for confirming the attack.
+    /// </summary>
+    /// <param name="value">The number of troops used in the attack.</param>
     public void attackScrollBarConfirmButtonCallBack(double value){
 
         /**
@@ -190,12 +241,21 @@ public class Game_Core : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Callback function for troop movement.
+    /// </summary>
+    /// <param name="startCountry">The country troops are moving from.</param>
+    /// <param name="endCountry">The country troops are moving to.</param>
     public void movementCallBack(Country startCountry, Country endCountry){
         GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(startCountry.getTroops() - 1);
         SelectCountry1 = startCountry;
         SelectCountry2 = endCountry;
     }
 
+    /// <summary>
+    /// Callback function for confirming troop movement.
+    /// </summary>
+    /// <param name="value">The number of troops being moved.</param>
     public void movementScrollBarConfirmButtonCallBack(double value){
         int troops = Convert.ToInt32(value);
         SelectCountry1.zbbTroops(troops);
@@ -203,23 +263,32 @@ public class Game_Core : MonoBehaviour
         updateUI();
     }
 
+    /// <summary>
+    /// Callback function for the end of the troop placement round.
+    /// </summary>
     public void roundSetTroopCallBack(){
         nextRound();
         Debug.Log("ATTACK ROUND");
         
     }
 
+    /// <summary>
+    /// Callback function for the end of the attack round.
+    /// </summary>
     public void roundAttackCallBack(){
         nextRound();
         Debug.Log("MOVEMENT ROUND");
     }
 
-
+    /// <summary>
+    /// Callback function for the end of the troop movement round.
+    /// </summary>
     public void roundMovementCallBack(){
         nextRound();
         Debug.Log("SETTROOPS ROUND");
     }
 
+    // Determines the next round and switches game mode accordingly.
     private void nextRound(){
         switch(gameMode){
             case Constant.GAMEMODE_SETTROOP:
@@ -253,6 +322,7 @@ public class Game_Core : MonoBehaviour
         }
     }
 
+    // Calculates and assigns troop bonuses to players.
     private void obtainTroops(Player player){
 
         int entitledTroops = 40;
@@ -261,7 +331,7 @@ public class Game_Core : MonoBehaviour
 
     }
 
-    
+    // Checks if any player has been defeated.
     private void isDefeated(){
 
         List<Player> defeatedPlayer = new List<Player>();
@@ -283,8 +353,6 @@ public class Game_Core : MonoBehaviour
 
         }
 
-
-
         foreach (Player player in defeatedPlayer)
         {
             players.Remove(player);
@@ -295,6 +363,7 @@ public class Game_Core : MonoBehaviour
         }
     }
 
+    // Moves to the next player's turn.
     private void nextPlayer(ArrayList jumpOffPlayers = null)
     {
         if (players.Count == 0){
@@ -311,6 +380,7 @@ public class Game_Core : MonoBehaviour
         currentPlayer.CanSelect = true;
     }
 
+    // Finds the index of the next player.
     private int GetNextPlayerIndex(int currentIndex, ArrayList jumpOffPlayers)
     {
         int nextIndex = (currentIndex + 1) % players.Count;
@@ -322,6 +392,7 @@ public class Game_Core : MonoBehaviour
         return nextIndex;
     }
 
+    // Resets the current player to the first player in the list.
     private void resetCurrentPlayer(){
         
         if(players.Count <= 0){
@@ -338,6 +409,7 @@ public class Game_Core : MonoBehaviour
         currentPlayer.CanSelect = true;
     }
 
+    // Updates the game UI.
     private void updateUI(){
 
         if(currentPlayer == null){
@@ -356,8 +428,4 @@ public class Game_Core : MonoBehaviour
             uiManager.setCountryArmyText(SelectCountry2);
         }
     }
-
-
-
-
 }

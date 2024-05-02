@@ -3,74 +3,91 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the camera's zooming functionality.
+/// </summary>
 public class CameraManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-
+    /// <summary>
+    /// The canvas used for reference in determining the camera's initial size.
+    /// </summary>
     public Canvas canvas;
 
-    float mouseWheelSpeed;
-
-    private float interpolate;
+    /// <summary>
+    /// The speed at which the camera zooms in and out in response to mouse input.
+    /// </summary>
+    private float mouseWheelSpeed;
 
     /// <summary>
-    /// The maximum zoom size for the camera.
-    /// This value have to bigger than<c>minZoomSize</c>
+    /// The maximum zoom size allowed for the camera.
+    /// This value must be greater than <c>minZoomSize</c>.
     /// </summary>
     private float maxZoomSize;
 
     /// <summary>
-    /// The minimum zoom size for the camera.
-    /// This value have to bigger than<c>maxZoomSize</c>
+    /// The minimum zoom size allowed for the camera.
+    /// This value must be less than <c>maxZoomSize</c>.
     /// </summary>
     private float minZoomSize;
 
+    /// <summary>
+    /// Sets the initial camera position and zoom level based on the size of the canvas.
+    /// </summary>
     void Start()
     {
-
+        // Determine the size of the canvas
         Vector2 screenSize = canvas.GetComponent<RectTransform>().sizeDelta;
 
-        Camera.main.orthographicSize = screenSize.x/10;
+        // Set the initial zoom level of the camera based on the canvas size
+        Camera.main.orthographicSize = screenSize.x / 10;
 
-        //Make Camera at the center of canvas
+        // Position the camera at the center of the canvas
         Camera.main.transform.position = canvas.transform.position;
 
+        // Set the mouse wheel speed based on the canvas size
         mouseWheelSpeed = screenSize.x;
-        maxZoomSize = screenSize.x/5;
-        minZoomSize = screenSize.x/20;
+
+        // Set the maximum and minimum zoom sizes based on the canvas size
+        maxZoomSize = screenSize.x / 5;
+        minZoomSize = screenSize.x / 20;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates the camera's zoom level based on mouse input.
+    /// </summary>
     void Update()
     {
-        zoomCamera();
+        ZoomCamera();
     }
 
-
-    private void zoomCamera(){
-
+    /// <summary>
+    /// Zooms the camera in or out based on mouse scroll input.
+    /// </summary>
+    private void ZoomCamera()
+    {
         float offset = 0;
 
-        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        // Check for mouse scroll input
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             offset += mouseWheelSpeed;
-
-        }else if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             offset -= mouseWheelSpeed;
         }
 
-        // 限制offset的范围
-        offset = Math.Abs(offset * Time.deltaTime) * 2;
-        Debug.Log(offset);
-        
+        // Limit the offset range
+        offset = Mathf.Abs(offset * Time.deltaTime) * 2;
 
-        if (offset > 0 && Camera.main.orthographicSize + offset < maxZoomSize){
+        // Adjust the camera's zoom level within the specified range
+        if (offset > 0 && Camera.main.orthographicSize + offset < maxZoomSize)
+        {
             Camera.main.orthographicSize += offset;
         }
-        else if (offset < 0 && Camera.main.orthographicSize - offset > minZoomSize){
+        else if (offset < 0 && Camera.main.orthographicSize - offset > minZoomSize)
+        {
             Camera.main.orthographicSize -= offset;
         }
-
     }
 }

@@ -86,9 +86,7 @@ As a client, I want the game to have more design elements in the play interface,
 
 ## Test plan and evidence of testing
 
-This week we tested ver0.0.4.The spelling error in Launch_Screen is modified, and the problem of jumping to the wrong scene when the scene jumps in Main_Menu_Button is detected. 
-
-The evidence can be seen in the pictures in the file.
+The content of zoom in Camera_Controller is tested, and the ZoomCamera () method passes the test.
 
 ## Summary of sprint
 
