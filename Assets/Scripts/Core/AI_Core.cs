@@ -1,159 +1,277 @@
-// using System;
-// using System.Collections.Generic;
-// using UnityEngine;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-// public class AI_Core : MonoBehaviour
-// {
-//     private Player[] players;
-//     private Country[] countries;
+public class AI_Core : MonoBehaviour
+{
+    private Player[] players;
+    private Country[] countries;
 
-//     void Start()
-//     {
-//         // ��ʼ����Һ͹����б�
-//         players = FindObjectsOfType<Player>();
-//         countries = FindObjectsOfType<Country>();
-//         SetTroop();
-//     }
+    /// <summary>
+    /// The difficulty level of the AI.
+    /// Determines how smart and aggressive the AI behaves.
+    /// </summary>
+    public enum DifficultyLevel
+    {
+        Easy,
+        Medium,
+        Hard
+    }
 
-//     private void SetTroop()
-//     {
-//         foreach (Player player in players)
-//         {
-//             if (player.IsAI())
-//             {
-//                 AISetTroop(player);
-//             }
-//         }
-//     }
+    /// <summary>
+    /// The current difficulty level of the AI.
+    /// </summary>
+    public DifficultyLevel difficultyLevel;
 
-//     private void AISetTroop(Player aiPlayer)
-//     {
-//         // ��ȡ��ǰ AI ��ҿ��ƵĹ����б�
-//         List<Country> controlledCountries = aiPlayer.GetControlledCountries();
+    /// <summary>
+    /// The list of countries owned by the AI player.
+    /// </summary>
+    private List<Country> ownedCountries;
 
-//         // ���� AI ����»غϵõ��ľ�������
-//         int newTroops = CalculateNewTroops(aiPlayer);
+    /// <summary>
+    /// The list of neighboring countries of enemy players.
+    /// </summary>
+    private List<Country> enemyNeighbors;
 
-//         // ���������������������
-//         foreach (Country country in controlledCountries)
-//         {
-//             country.army += newTroops;
+    /// <summary>
+    /// The list of continents where the AI player has presence.
+    /// </summary>
+    private List<int> ownedContinents;
 
-//             // �ж��Ƿ񹥻��ڽ��ĵжԹ���
-//             if (ShouldAttack(country))
-//             {
-//                 AttackNeighboringCountry(country);
-//             }
-//         }
-//     }
+    /// <summary>
+    /// The target country for the current turn's action.
+    /// </summary>
+    private Country targetCountry;
 
-//     private int CalculateNewTroops(Player player)
-//     {
-//         // ������Ը�����Ϸ�������ҿ��ƵĹ��������������»غϵõ��ľ�������
-//         // ����ֻ��һ���򵥵�ʾ��������ÿ����ҿ��ƵĹ�����������2�����»غϵõ��ľ�������
-//         int troopsPerCountry = player.GetControlledCountries().Count / 2;
-//         return troopsPerCountry;
-//     }
+    /// <summary>
+    /// Initializes the AI player with default settings.
+    /// </summary>
+    private void Initialize()
+    {
+        difficultyLevel = DifficultyLevel.Medium;
+        ownedCountries = new List<Country>();
+        enemyNeighbors = new List<Country>();
+        ownedContinents = new List<int>();
+    }
 
-//     private bool ShouldAttack(Country country)
-//     {
-//         // �ж��Ƿ񹥻��ڽ��ĵжԹ��ҵ��߼�
-//         // ������Ը����Լ�����Ϸ������ʵ��
-//         // ���磬�ж��Ƿ����ڽ��ĵжԹ��ң��Լ��ɹ����Ƿ񳬹�50%
-//         // ����ֻ��һ���򵥵�ʾ��������ֻ�����ڽ������ежԹ����ҳɹ��ʳ���50%ʱ�Ź���
-//         foreach (Country neighbor in GetNeighbors(country))
-//         {
-//             if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
-//             {
-//                 return true;
-//             }
-//         }
-//         return false;
-//     }
+    /// <summary>
+    /// Updates the AI's decision-making process.
+    /// </summary>
+    private void Update()
+    {
+        MakeDecision();
+    }
 
-//     private float CalculateSuccessRate(Country attacker, Country defender)
-//     {
-//         /* 
-//          * �ɹ��ʼ��㣬Ŀǰ�����Ǳ������������ǳɹ���
-//          */
-       
-//         {
-//             //����selectCountry()û���꣬�Ǵ���
-//             // ������������Ŀ
-//             int attackDiceCount = attacker.army > 3 ? 3 : attacker.army - 1;
-//             // ���ط�������Ŀ
-//             int defenseDiceCount = defender.army > 2 ? 2 : defender.army;
-//             //************************************************
-//             // ��ʼ���ɹ������ʹ�ɹ�����
-//             float successCount = 0;
-//             float bigSuccessCount = 0;
+    /// <summary>
+    /// Makes a strategic decision based on the current game state.
+    /// </summary>
+    private void MakeDecision()
+    {
+        switch (difficultyLevel)
+        {
+            case DifficultyLevel.Easy:
+                PlayRandom();
+                break;
+            case DifficultyLevel.Medium:
+                PlaySmart();
+                break;
+            case DifficultyLevel.Hard:
+                PlayAggressive();
+                break;
+            default:
+                break;
+        }
+    }
 
-//             // �������п��ܵ����ӵ������
-//             for (int attackDice = 1; attackDice <= 6; attackDice++)
-//             {
-//                 for (int defenseDice = 1; defenseDice <= 6; defenseDice++)
-//                 {
-//                     // ����������ͷ��ط���������
-//                     int maxAttackDice = Math.Min(attackDiceCount, attackDice);
-//                     int maxDefenseDice = Math.Min(defenseDiceCount, defenseDice);
+    /// <summary>
+    /// Plays randomly without much strategic thinking.
+    /// </summary>
+    private void PlayRandom()
+    {
+        // Implement random decision-making logic here
+        // For example, randomly select a country to attack or reinforce
+        int randomIndex = UnityEngine.Random.Range(0, ownedCountries.Count);
+        targetCountry = ownedCountries[randomIndex];
+        // Simulate an attack or reinforcement
+        AttackOrReinforce();
+    }
 
-//                     // ���������������һ�����ӵĵ������ڷ��ط�������һ�����ӵĵ����������ӳɹ�����
-//                     if (maxAttackDice > maxDefenseDice)
-//                     {
-//                         successCount += 1;
-//                         // ��������������������ڷ��ط���������������������һ�����ӵĵ������ڷ��ط����������������Ӵ�ɹ�����
-//                         if (attackDice > defenseDice)
-//                         {
-//                             bigSuccessCount += 1;
-//                         }
-//                     }
-//                 }
-//             }
+    /// <summary>
+    /// Plays smartly by considering strategic advantages.
+    /// </summary>
+    private void PlaySmart()
+    {
+        // Implement smart decision-making logic here
+        // For example, prioritize reinforcing countries with weaker defenses
+        Country weakestCountry = GetWeakestCountry();
+        if (weakestCountry != null)
+        {
+            targetCountry = weakestCountry;
+            // Reinforce the weakest country
+            Reinforce();
+        }
+    }
 
-//             // ����ɹ��ʺʹ�ɹ���
-//             float successRate = successCount / 36;
-//             float bigSuccessRate = bigSuccessCount / 36;
+    /// <summary>
+    /// Plays aggressively by prioritizing attacks and expansions.
+    /// </summary>
+    private void PlayAggressive()
+    {
+        FindTargetCountry();
+        AttackTargetCountry();
+    }
 
-//             // �����ۺϳɹ���
-//             float compositeSuccessRate = 0.8f * successRate + 0.2f * bigSuccessRate;
+    /// <summary>
+    /// Finds a suitable target country for an attack.
+    /// </summary>
+    private void FindTargetCountry()
+    {
+        foreach (Country enemyCountry in enemyNeighbors)
+        {
+            if (IsAttackFeasible(enemyCountry))
+            {
+                targetCountry = enemyCountry;
+                return;
+            }
+        }
+    }
 
-//             return compositeSuccessRate;
-//         }
+    /// <summary>
+    /// Determines if attacking the specified country is feasible.
+    /// </summary>
+    /// <param name="country">The target country to attack.</param>
+    /// <returns>True if attacking the country is feasible; otherwise, false.</returns>
+    private bool IsAttackFeasible(Country country)
+    {
+        return country.getTroops() < GetOwnStrongestCountry().getTroops();
+    }
 
-//     }
+    /// <summary>
+    /// Attacks the target country.
+    /// </summary>
+    private void AttackTargetCountry()
+    {
+        Country strongestCountry = GetOwnStrongestCountry();
+        if (strongestCountry != null)
+        {
+            // Move troops from the strongest country to attack the target
+            strongestCountry.zbbTroops(targetCountry.getTroops() + 1);
+            targetCountry.setOwner(strongestCountry.getOwner());
+        }
+    }
 
-//     private void AttackNeighboringCountry(Country country)
-//     {
-//         // �����ڽ��ĵжԹ��ҵ��߼�
-//         // ������Ը�����Ϸ����͹����ɹ���������ս�����
-//         // ����ֻ��һ���򵥵�ʾ�������蹥���ɹ��ʳ���50%ʱ�������ɹ�
-//         foreach (Country neighbor in GetNeighbors(country))
-//         {
-//             if (neighbor.currentPlayer != country.currentPlayer && CalculateSuccessRate(country, neighbor) > 0.5f)
-//             {
-//                 // �����ɹ������¹��ҵĿ����ߺ;�����������Ϣ
-//                 neighbor.currentPlayer = country.currentPlayer;
-//                 neighbor.army = country.army - 1; // ���蹥����ʣ��һ������
-//             }
-//         }
-//     }
+    /// <summary>
+    /// Retrieves the weakest country owned by the AI player.
+    /// </summary>
+    /// <returns>The weakest country owned by the AI player.</returns>
+    private Country GetWeakestCountry()
+    {
+        Country weakestCountry = null;
+        foreach (Country country in ownedCountries)
+        {
+            if (weakestCountry == null || country.getTroops() < weakestCountry.getTroops())
+            {
+                weakestCountry = country;
+            }
+        }
+        return weakestCountry;
+    }
 
-//     private List<Country> GetNeighbors(Country selectedCountry)
-//     {
-//         List<Country> neighbors = new List<Country>();
-//         if (Country.mapData.ContainsKey(selectedCountry.name))
-//         {
-//             List<string> neighborNames = Country.mapData[selectedCountry.name];
-//             foreach (string neighborName in neighborNames)
-//             {
-//                 // �� countries �����в������ڹ��Ҳ����ӵ��б���
-//                 Country neighbor = Array.Find(countries, c => c.name == neighborName);
-//                 if (neighbor != null)
-//                 {
-//                     neighbors.Add(neighbor);
-//                 }
-//             }
-//         }
-//         return neighbors;
-//     }
-// }
+    /// <summary>
+    /// Retrieves the strongest country owned by the AI player.
+    /// </summary>
+    /// <returns>The strongest country owned by the AI player.</returns>
+    private Country GetOwnStrongestCountry()
+    {
+        Country strongestCountry = null;
+        foreach (Country country in ownedCountries)
+        {
+            if (strongestCountry == null || country.getTroops() > strongestCountry.getTroops())
+            {
+                strongestCountry = country;
+            }
+        }
+        return strongestCountry;
+    }
+
+    /// <summary>
+    /// Attacks or reinforces the target country.
+    /// </summary>
+    private void AttackOrReinforce()
+    {
+        if (targetCountry != null)
+        {
+            if (targetCountry.isOwned())
+            {
+                Reinforce();
+            }
+            else
+            {
+                AttackTargetCountry();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Reinforces the target country.
+    /// </summary>
+    private void Reinforce()
+    {
+        targetCountry.addTroops(5);
+    }
+
+    /// <summary>
+    /// Retrieves the list of countries owned by the AI player.
+    /// </summary>
+    /// <returns>The list of owned countries.</returns>
+    public List<Country> GetOwnedCountries()
+    {
+        return ownedCountries;
+    }
+
+    /// <summary>
+    /// Retrieves the list of neighboring countries of enemy players.
+    /// </summary>
+    /// <returns>The list of enemy neighboring countries.</returns>
+    public List<Country> GetEnemyNeighbors()
+    {
+        return enemyNeighbors;
+    }
+
+    /// <summary>
+    /// Adds a country to the list of owned countries.
+    /// </summary>
+    /// <param name="country">The country to add.</param>
+    public void AddOwnedCountry(Country country)
+    {
+        ownedCountries.Add(country);
+    }
+
+    /// <summary>
+    /// Removes a country from the list of owned countries.
+    /// </summary>
+    /// <param name="country">The country to remove.</param>
+    public void RemoveOwnedCountry(Country country)
+    {
+        ownedCountries.Remove(country);
+    }
+
+    /// <summary>
+    /// Adds a continent to the list of owned continents.
+    /// </summary>
+    /// <param name="continent">The continent to add.</param>
+    public void AddOwnedContinent(int continent)
+    {
+        ownedContinents.Add(continent);
+    }
+
+    /// <summary>
+    /// Removes a continent from the list of owned continents.
+    /// </summary>
+    /// <param name="continent">The continent to remove.</param>
+    public void RemoveOwnedContinent(int continent)
+    {
+        ownedContinents.Remove(continent);
+    }
+
+}

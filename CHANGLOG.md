@@ -2,15 +2,123 @@
 
 ---
 
+<<<<<<< HEAD
+=======
+## [1.0.0] 2024-05-03
+
+### Added
+
+* Added card selecting system.
+* Added player icon selecting system.
+* Added game setting system.
+* Added AI system.
+* A huge of document comment added.
+* System texting document added
+* New Class diagram added.
+
+### Changed
+
+* Significant code refactoring.
+
+---
+
+## [0.4.0] - 2024-04-21
+
+### Added
+
+* Player's garrison turn fully implemented.
+* Player movement now based on breadth-first search(BFS) algorithm.
+* Added detection for defeat of a player faction.
+* Added detection for a player win the game.
+* Information bar shows the current selecting country name and troops number in this country.
+
+### Changed
+
+* Significant code refactoring.Including refactoring of camera controls and map control scripts.
+* Privious CHANGLOG.md file have been refactored to make it more readability.
+
+### BugFix
+
+* China now is the neighbor of Ural.
+* Southtern Europe now is called Southern Europe.
+* Map dragging and keyboard scrolling now perfectly adapted.
+
+### Known Bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+
+---
+
+## [0.3.1] - 2024-04-21
+
+### Added
+
+* Game map can be drag by mouse now.
+
+### Changed
+
+* Refactored numerous camera controller classes to improve logic coherence.
+
+### BugFix
+
+* Fixed an issue where "New Guinea" country could not be attacked due to incorrect key in dictionary.
+* Fixed a bug where improper scrollbar retraction allowed the use of "shadow troops" to attack other countries.
+
+
+### Known Bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+* Drag map could cause the camera to move beyond the map's boundaries
+
+---
+
+## [0.3.0] - 2024-04-20
+
+### Added
+
+* Full support for attacking other countries added.
+* A comprehensive round loop system has been implemented.
+* Added troop selection via scrollbar.
+* The popup text panel can be used now.
+* Added dice functionality, attacks now depend on dice rolls to determine the outcome.
+
+### Changed
+
+* The Country class has been refactored.
+* Refactored numerous classes to improve logic coherence.
+* Refactored the method of acquiring troops for players.
+* Information about adjacent countries is now stored using a dictionary, eliminating the need for collision box detection.
+* Some UI files have been renamed to improve readability for English speakers.
+* Privious CHANGLOG.md file have been refactored to make it more readability.
+
+### BugFix
+
+* Fixed the scrollbar could not display well in different zoom scale.
+* The key "Nothern Europe" in contry manager dictionary has renamed to "Northern Europe".
+* Fixed issue with abnormal troop loss after attacking other countries.
+* When the init troops. each country now will have 5 troops instead of 6.
+
+### Known Bug
+
+* The popup panel does not work properly when too much information needs to be displayed within a short period of time.
+
+>>>>>>> develop
 ## [0.2.0] - 2024-04-19
 
 ### Added
 
 * This game now will run by the event handle by user instead of a "Game Core".
+<<<<<<< HEAD
 * Each player has its own represent color now.
 * Now each player can choose a series of countries to start.
 * Now each player start with 20 troops.
 * Added information panel.
+=======
+* Each player now has their own representative color.
+* Players can now choose a series of countries to start with.
+* Each player start with 20 troops.
+* An information panel has been added.
+>>>>>>> develop
 * Added "Current player" text and "troop" text in information panel.
 * Added a setting button in the game scene. It do nothing right now.
 * The UI panel can run in almost different resolution.
@@ -21,8 +129,13 @@
 * A constant class for storage the static value.
 * A 3D project for dice.
 * A series of button UI.
+<<<<<<< HEAD
 * User avatar UI
 * number from 0 to 9 UI.
+=======
+* User avatar UI elements have been added.
+* UI elements displaying numbers from 0 to 9 have been implemented.
+>>>>>>> develop
 
 ### Changed
 

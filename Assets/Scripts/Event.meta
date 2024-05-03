@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Event.meta
 guid: f4a7f57aa60ee4a4eadd4be2d9fa21d4
+========
+guid: 41c911cfe52c90340baac55bc653190b
+>>>>>>>> develop:Assets/Scripts/Game.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
