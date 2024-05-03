@@ -2,6 +2,24 @@
 
 ---
 
+## [1.0.0] 2024-05-03
+
+### Added
+
+* Added card selecting system.
+* Added player icon selecting system.
+* Added game setting system.
+* Added AI system.
+* A huge of document comment added.
+* System texting document added
+* New Class diagram added.
+
+### Changed
+
+* Significant code refactoring.
+
+---
+
 ## [0.4.0] - 2024-04-21
 
 ### Added

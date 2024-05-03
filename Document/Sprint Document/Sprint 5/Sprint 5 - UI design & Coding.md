@@ -78,7 +78,7 @@ As a customer, I hope that this game can not only be played with friends, but al
 
 
 ## Test plan and evidence of testing
-
+Tested setOwner () in the Country class and some other contents, and all Constants in the constant class.
 
 
 ## Summary of sprint

@@ -183,7 +183,6 @@ public class Camera_Controller : MonoBehaviour
             offset = -mouseWheelSpeed * 3;
         }
 
-        //随着帧数的增大减少
         float halfsecond =  1 / Time.deltaTime / 30;
         float movementValue = mouseWheelSpeed / halfsecond;
 

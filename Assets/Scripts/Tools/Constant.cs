@@ -1,10 +1,13 @@
-
 using UnityEngine;
 
+/// <summary>
+/// Contains constant values used throughout the game.
+/// </summary>
 public class Constant
 {
-    private Constant(){}
+    private Constant(){} // Private constructor to prevent instantiation
 
+    // Game modes
     public const int GAMEMODE_SINGLEPLAYER = 1;
     public const int GAMEMODE_MUTIPLAYER = 2;
     public const int GAMEMODE_SETTROOP = 4;
@@ -13,6 +16,7 @@ public class Constant
     public const int GAMEMODE_MOVEMENT = 16;
     // public const int GAMEMODE_DEFENSE = 32;
 
+    // Continents
     public const int CONTINENT_ASIA = 1;
     public const int CONTINENT_AFRICA = 2;
     public const int CONTINENT_EUROPE = 3;
@@ -20,6 +24,7 @@ public class Constant
     public const int CONTINENT_SOUTH_AMERICA = 5;
     public const int CONTINENT_AUSTRALIA = 6;
 
+    // Player colors
     public static Color32 PLAYER1_COLOR = new Color32(238, 63, 77, 255); //茶花红 Tea flower red
     public static Color32 PLAYER2_COLOR = new Color32(21, 85, 154, 255); //海涛蓝 Ocean wave blue
     public static Color32 PLAYER3_COLOR = new Color32(27, 167, 132, 255); //竹绿 banboo green
@@ -41,6 +46,7 @@ public class Constant
         PLAYER8_COLOR
     };
 
+    // Player modes
     public const int PLAYER_MODE_CLIENT = 0;
     public const int PLAYER_MODE_HOTSET = 1;
     public const int PLAYER_MODE_INTERNET = 2;

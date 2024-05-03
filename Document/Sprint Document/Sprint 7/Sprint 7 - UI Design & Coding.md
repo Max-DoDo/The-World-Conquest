@@ -14,7 +14,7 @@
 | Max Wang       | 1. Coding for Game process; 2. UI design |
 | Tao Yiwen      | 1. Component design; 2.head portrait design |
 | Wu Tong        | 1. Testing |
-| Sun Weiyi      | None |
+| Sun Weiyi      | 1. Learning Unity                           |
 | Song Zhenmao   | 1. Minutes of the meeting |
 | Zhang Yaowen   | 1. Sprint document; 2.Audio upload |
 
