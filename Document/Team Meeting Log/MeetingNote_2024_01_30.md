@@ -143,11 +143,6 @@
 
     **NO DISCUSSION (NOT DONE YET)**
 
-## Other Remarks
-
-* We need more details to get better
-* We need strong debate instead of "whatever"
-
 
 **END 2024-2-1 READ ONLY**
 ---

@@ -50,7 +50,6 @@ As a client, I want to see a complete game before the project deadline, and the 
 ## Test plan and evidence of testing
 
 
-
 ## Summary of sprint
 
 ```

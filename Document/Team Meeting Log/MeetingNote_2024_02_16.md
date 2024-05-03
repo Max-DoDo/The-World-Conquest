@@ -1,4 +1,4 @@
-﻿# Software Engineering G6046 - Team Meeting Note
+# Software Engineering G6046 - Team Meeting Note
 
 * **Team Number:**  
     Not generate yet
@@ -64,9 +64,5 @@
 
 * Re-add the meeting moderator to the weekly meeting minutes.
 
-## Other Remarks
-
-* We need more details to get better
-* We need strong debate instead of "whatever"
 
 **END 2024-2-16**

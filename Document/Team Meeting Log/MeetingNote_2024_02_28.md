@@ -67,11 +67,6 @@
 * Solution: In terms of time, we decided to make modifications on the basis of the original, so as to make the game the best without affecting the process of the project. In terms of technology, we will strictly control the quality, after our discussion, the technical staff is very confident to do better, so we do not have technical risks. In terms of personnel, if there is a shortage of personnel, we will give help as soon as possible, so as not to affect the progress of the project.
 
 
-## Other Remarks
-
-* We need more details to get better
-* We need strong debate instead of "whatever"
-
 
 **END 2024-2-28 READ ONLY**
 ---

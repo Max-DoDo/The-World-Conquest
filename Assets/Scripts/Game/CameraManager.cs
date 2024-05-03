@@ -60,17 +60,12 @@ public class CameraManager : MonoBehaviour
         ZoomCamera();
     }
 
-<<<<<<< Updated upstream
     /// <summary>
     /// Zooms the camera in or out based on mouse scroll input.
     /// </summary>
     private void ZoomCamera()
     {
-=======
 
-    private void ZoomCamera(){
-
->>>>>>> Stashed changes
         float offset = 0;
 
         // Check for mouse scroll input
@@ -83,14 +78,10 @@ public class CameraManager : MonoBehaviour
             offset -= mouseWheelSpeed;
         }
 
-<<<<<<< Updated upstream
-        // Limit the offset range
-        offset = Mathf.Abs(offset * Time.deltaTime) * 2;
-=======
+
         offset = Math.Abs(offset * Time.deltaTime) * 2;
         Debug.Log(offset);
         
->>>>>>> Stashed changes
 
         // Adjust the camera's zoom level within the specified range
         if (offset > 0 && Camera.main.orthographicSize + offset < maxZoomSize)

@@ -49,11 +49,5 @@
 
 * Solution: We have a reasonable allocation of work within the group. No one has too many tasks or too few tasks, so there is no risk of not completing them on time. As for the group members who could not attend the meeting due to some things, after discussion, we decided to adopt the method of recording, and record every meeting. In order to listen to the group members when they are unable to attend the meeting.
 
-## Other Remarks
-
-* We need more details to get better
-* We need strong debate instead of "whatever"
-
-
 **END 2024-3-1 READ ONLY**
 ---

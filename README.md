@@ -4,11 +4,10 @@
 
 **Team 27 Present**
 
-This is a PC port of the Risk board game produced by "Watson Games". Developed by Unity and C#.
+This is a course study and coursework project
 
-## How To Use:
-
-* No Release yet
+## project address
+[GitHub: The World Conquest](https://github.com/Max-DoDo/The-World-Conquest)
 
 ## Author:
 * Max Wang

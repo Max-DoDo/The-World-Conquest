@@ -21,13 +21,11 @@
 
 
 ## User Stories 
-***Note user stories, the more detailed the better, without using technical language or abstracting the user’s needs***
 
 No user story for this sprint.
 
 
 ## Requirement analysis / Task Cards
-***Analyze user stories, split them into different needs, and then decompose them into task cards***
 
 ### Requirement analysis
 

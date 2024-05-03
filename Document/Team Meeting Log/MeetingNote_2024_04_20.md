@@ -8,9 +8,9 @@
     * `Wu Tong`
     * `Tao Yiwen`
     * `Song Zhenmao`
-    * `Sun Weiyi`
+    * `Zhang Yaowen`
 
-    **(All members were present)**
+    `Sun Weiyi` absent
 
 * **Meeting format:**   
     physical meeting in library
@@ -25,26 +25,16 @@
 
 ## Note before meeting
 
-* Currently the team members are all back in learning mode and fully engaged in team creation.
 
 ## Issues discussed at this meeting
 
 1. **About Game Sound**
-    * We have now found the sound effects for winning and losing the game.
-    * We have found two button sounds and a background music.
-    * Card sounds and dice sounds are still missing.
 
-2. **About UI optimization**
-    * There should be a divider in the game interface.
-    * Need to make avatars available for player to choose when selecting a character.
-    * Need to make the UI of selecting a country's name with the mouse.
-    * Number of armies in a country needs to be realistic.
+Zhang Yaowen thought that our game should have a series of sound effects and background music. Max Wang thought that the primary goal at the current development progress should not be sound effects and background music. We should focus on the completion of the main framework of the game and a series of customization options, and should slow down matters such as sound effects and background music. Finally, we started the game development first according to Max Wang's idea.
 
-## Other Remarks
+2. **Max Wang and Tao Yiwen's discussion on UI**
 
-* We need more details to get better
-* We need strong debate instead of "whatever"
-
+Max Wang brought many sketches full of ideas for the in-game UI. He urged Tao Yiwen to improve the UI development progress. However, since the team members are approaching the end of their semesters and have a lot of work to do, some UIs seem to have to be abandoned. But there are still many issues that the two of them discussed and were ready to implement. Including a top information display bar. The dividing line between each information display box. This dividing line should be intaglio, just like engraving on a piece of wood. In addition, there are some animations for victory and defeat, as well as animations for rolling dice, taking out cards, etc. These animations should be made into Unity preferb. Max believes that what UI should do is not just send him png format images, but draw the UI into the game without implementing its logic.
 
 **END 2024-4-20**
 ---

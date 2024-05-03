@@ -1,4 +1,4 @@
-﻿# Software Engineering G6046 - Team Meeting Note
+# Software Engineering G6046 - Team Meeting Note
 
 * **Team Number:**  
     27
@@ -47,13 +47,6 @@
 **At this stage, members of the Group have been unable to attend the meeting in time.**
 
 * Solution: Due to personal issues, team members could not attend the meeting in time to discuss how the project should be developed next. In this case, we have taken appropriate measures so as not to affect the progress of the project.
-
-
-## Other Remarks
-
-* We need more details to get better
-* We need strong debate instead of "whatever"
-
 
 **END 2024-3-8 READ ONLY**
 ---

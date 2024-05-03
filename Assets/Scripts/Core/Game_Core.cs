@@ -30,21 +30,15 @@ public class Game_Core : MonoBehaviour
     /// </summary>
     private List<Player> localPlayer;
 
-<<<<<<< Updated upstream
     /// <summary>
     /// The first selected country.
     /// </summary>
-    private Country SelectCountry1;
+    private Country selectCountry1;
 
     /// <summary>
     /// The second selected country.
     /// </summary>
-    private Country SelectCountry2;
-=======
-    private Country selectCountry1;
-
     private Country selectCountry2;
->>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
