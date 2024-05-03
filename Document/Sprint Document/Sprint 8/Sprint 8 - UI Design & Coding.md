@@ -13,7 +13,7 @@
 |  :----         | :----                |
 | Max Wang       | 1. Coding |
 | Tao Yiwen      | 1. UI design |
-| Wu Tong        | 1. Testing |
+| Wu Tong        | 1. Testing;2. Coding |
 | Sun Weiyi      | 1.  Process documentation |
 | Song Zhenmao   | 1. Minutes of the meeting |
 | Zhang Yaowen   | 1. Sprint document; 2. Class diagram modification |
@@ -88,14 +88,32 @@ As a client, I want the game to run smoothly in the battle interface, and when y
 
 
 ## Test plan and evidence of testing
-
+* Avatar Customization:
+  * Verify avatar selection and color change functionality.
+  * Ensure prevention of duplicate color selections.
+* Inviting Friends:
+  * Test invite methods and successful receipt of invitations.
+  * Confirm integration of invited friends into game lobby.
+* Adding AI Players:
+  * Validate AI behavior alignment with selected difficulty levels.
+  * Assess player-AI interaction during gameplay.
+* Battle Interface and Hover Information:
+  * Ensure smooth gameplay operation.
+  * Test display of area information upon hovering.
+* End of Game and Winner Display:
+  * Determine winning player accurately.
+  * Confirm proper display of winner's information.
 
 
 ## Summary of sprint
 
-```
-It's been a heavy week. Since the process of the game was written in advance, this part can be done well. Along the way, the team members gave suggestions on how to optimize the game process, such as adding zooming functions, and the team members did a good job of modifying the game process. We didn't finish building the AI this week. The team built a simple AI a few weeks ago, but it wasn't enough for this game. Because creating an AI is difficult and takes a lot of time to test, it was not completed this week. The team decided to continue building the AI over the weekend and the following week, and if they couldn't finish the AI the next week, they would only be able to submit a simple AI. The UI design team will add more details to the game this week, such as finding the most representative pattern for the areas on the map, and preparing to make the pattern into a flag. The difficulty facing UI design is the creation of modules. In order to make it easier for the player to choose, we will expand the options of some modules, and design it so that when clicked, a module will provide options. As the UI part is self-taught by the team members, the previous graphic design is very different, so the team members responsible for UI design are very busy this week. Because the interface is built at your fingertips, you just need to wait until the modules are designed and added to the game. Next week is the deadline for homework, I hope everyone can make a better version of the game before the deadline.
-```
+This week has been quite demanding for the team. Despite having the game's process outlined in advance, there were still challenges to overcome. However, the team handled them adeptly and even suggested optimizations, such as incorporating zooming functions, to enhance the gaming experience. These suggestions were promptly implemented, showcasing the team's flexibility and commitment to improvement.
+
+One area where progress fell short was in the development of the AI. While a simple AI had been created in previous weeks, it proved insufficient for the current game's requirements. Building a robust AI is a complex and time-consuming task, leading to its postponement. To address this, the team plans to dedicate additional time over the weekend and the following week to further develop the AI. However, if completion proves elusive, the team will resort to submitting a simplified version.
+
+Meanwhile, the UI design team is diligently working on enhancing the game's visual appeal. This includes refining area patterns on the map and preparing them for incorporation as flags. However, the challenge lies in creating modular designs that offer expanded options for players. Despite being self-taught, team members responsible for UI design are fully immersed in their tasks, striving to deliver a cohesive and engaging interface.
+
+As the deadline for the project approaches, there's a collective determination among team members to deliver a polished and refined game. With everyone's dedication and collaborative efforts, we aim to present an improved version of the game that exceeds expectations
 
 
 
