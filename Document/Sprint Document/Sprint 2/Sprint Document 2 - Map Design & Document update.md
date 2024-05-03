@@ -82,7 +82,8 @@
   
 
 ## Test plan and evidence of testing
-
+* Tested the existing button function and the script for the button.
+* See the test document for detailed test contents.
 
 
 ## Summary of sprint
