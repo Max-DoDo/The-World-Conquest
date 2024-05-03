@@ -88,14 +88,29 @@ As a client, I want to be able to choose how my avatar looks, including colors, 
 
 
 ## Test plan and evidence of testing
-
+* Feature Verification:
+  * Confirm avatar selection, color change, and invite options.
+  * Verify prevention of duplicate color selections.
+Ensure accessibility of AI player options.
+* Functionality Testing:
+  * Validate real-time update of selections.
+  * Test invite methods (email, social media).
+Assess AI behavior alignment with difficulty levels.
+* User Interface Testing:
+  * Evaluate ease of navigation and clarity of displays.
+  * Confirm integration of invited friends into game lobby.
 
 
 ## Summary of sprint
 
-```
-The work for this week has progressed relatively smoothly. While completing the task, we encountered some challenges along the way. During code execution, a bug emerged which prevented it from running properly. The tester provided feedback and engaged in discussions and collaboration with the coder to rectify the issue. Additionally, after consulting with team members, the designer decided to enhance the UI design by incorporating more intricate details and making changes to materials and colors, resulting in a comparatively satisfactory outcome. Simultaneously, team members made revisions to previously uploaded advanced documents. Through effective communication and cooperation among everyone involved, we successfully accomplished this week's task.
-```
+This week's progress was notably smooth, though not without its challenges. While tackling the tasks at hand, we encountered a significant obstacle during code execution, which manifested as a bug hindering proper functionality. However, through constructive feedback from our testers and collaborative efforts between the coder and the testing team, we managed to identify and resolve the issue efficiently.
+
+Moreover, our designer took a proactive approach to enhance the UI design by integrating more intricate details and refining materials and color schemes. This decision, made after thorough discussions with team members, resulted in a significantly improved outcome, elevating the overall user experience.
+
+Additionally, our team diligently revisited previously uploaded advanced documents, ensuring accuracy and completeness. This attention to detail and commitment to excellence underscore our dedication to delivering high-quality work.
+
+By fostering effective communication and fostering a spirit of cooperation among all team members, we successfully overcame the challenges encountered and accomplished our objectives for the week.
+
 
 
 
