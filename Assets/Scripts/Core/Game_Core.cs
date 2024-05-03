@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class Game_Core : MonoBehaviour
 {
@@ -32,6 +30,7 @@ public class Game_Core : MonoBehaviour
     /// </summary>
     private List<Player> localPlayer;
 
+<<<<<<< Updated upstream
     /// <summary>
     /// The first selected country.
     /// </summary>
@@ -41,6 +40,11 @@ public class Game_Core : MonoBehaviour
     /// The second selected country.
     /// </summary>
     private Country SelectCountry2;
+=======
+    private Country selectCountry1;
+
+    private Country selectCountry2;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -136,7 +140,7 @@ public class Game_Core : MonoBehaviour
 
         if(CountryManager.checkCountryOwner(player, country)){
             GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(player.troops);
-            SelectCountry1 = country;
+            selectCountry1 = country;
         }else{
             GameObject.Find("UI").GetComponent<UIManager>().scrollBarSleep();
         }
@@ -151,7 +155,7 @@ public class Game_Core : MonoBehaviour
         int intValue = Convert.ToInt32(value);
         // Debug.Log("scrollBar Value: " + intValue);
         
-        SelectCountry1.addTroops(intValue);
+        selectCountry1.addTroops(intValue);
         currentPlayer.zbbTroops(intValue);
         updateUI();
         
@@ -171,8 +175,8 @@ public class Game_Core : MonoBehaviour
     /// <param name="enemyCountry">The defending country.</param>
     public void attackCallBack(Country ownCountry, Country enemyCountry){
         GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(ownCountry.getTroops() - 1);
-        SelectCountry1 = ownCountry;
-        SelectCountry2 = enemyCountry;
+        selectCountry1 = ownCountry;
+        selectCountry2 = enemyCountry;
 
     }
 
@@ -187,8 +191,8 @@ public class Game_Core : MonoBehaviour
         **/
         Dice d = GameObject.Find("Dices").GetComponent<Dice>();
         int att = Convert.ToInt32(value);
-        SelectCountry1.zbbTroops(att);
-        int def = SelectCountry2.getTroops();
+        selectCountry1.zbbTroops(att);
+        int def = selectCountry2.getTroops();
 
         while(att > 0 && def > 0){
 
@@ -215,7 +219,7 @@ public class Game_Core : MonoBehaviour
 
                 }else{
                     def--;
-                    SelectCountry2.zbbTroops(1);
+                    selectCountry2.zbbTroops(1);
                 }
                 
             }
@@ -227,14 +231,14 @@ public class Game_Core : MonoBehaviour
 
         if(att == 0){
             // attack failure
-            GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Attack Failure! You troops remain: " + (SelectCountry1.getTroops() - att) + " enemy troops remain: " + def);
+            GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Attack Failure! You troops remain: " + (selectCountry1.getTroops() - att) + " enemy troops remain: " + def);
             return;
         }
 
         if(def == 0){
             GameObject.Find("UI").GetComponent<UIManager>().setPopUpText("Attack success! You troops remain:" + att);
-            SelectCountry2.setOwner(currentPlayer);
-            SelectCountry2.addTroops(att);
+            selectCountry2.setOwner(currentPlayer);
+            selectCountry2.addTroops(att);
         }
         isDefeated();
         updateUI();
@@ -248,8 +252,8 @@ public class Game_Core : MonoBehaviour
     /// <param name="endCountry">The country troops are moving to.</param>
     public void movementCallBack(Country startCountry, Country endCountry){
         GameObject.Find("UI").GetComponent<UIManager>().scrollBarAwake(startCountry.getTroops() - 1);
-        SelectCountry1 = startCountry;
-        SelectCountry2 = endCountry;
+        selectCountry1 = startCountry;
+        selectCountry2 = endCountry;
     }
 
     /// <summary>
@@ -258,8 +262,8 @@ public class Game_Core : MonoBehaviour
     /// <param name="value">The number of troops being moved.</param>
     public void movementScrollBarConfirmButtonCallBack(double value){
         int troops = Convert.ToInt32(value);
-        SelectCountry1.zbbTroops(troops);
-        SelectCountry2.addTroops(troops);
+        selectCountry1.zbbTroops(troops);
+        selectCountry2.addTroops(troops);
         updateUI();
     }
 
@@ -423,9 +427,9 @@ public class Game_Core : MonoBehaviour
         }
         uiManager.setCurrentPlayerText(currentPlayer);
 
-        if(SelectCountry2 != null){
-            uiManager.setCountryText(SelectCountry2);
-            uiManager.setCountryArmyText(SelectCountry2);
+        if(selectCountry2 != null){
+            uiManager.setCountryText(selectCountry2);
+            uiManager.setCountryArmyText(selectCountry2);
         }
     }
 }
